@@ -22,7 +22,7 @@ const AboutPreview = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
-            className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-xl overflow-hidden group cursor-pointer mb-8"
+            className="relative p-6 sm:p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-xl overflow-hidden group cursor-pointer mb-6 sm:mb-8 mx-4 sm:mx-0"
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
@@ -31,32 +31,32 @@ const AboutPreview = () => {
             
             {/* Content */}
             <div className="relative z-10">
-              <div className="flex justify-center mb-6">
-                <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
-                  <Code2 size={32} className="text-white" />
+              <div className="flex justify-center mb-4 sm:mb-6">
+                <div className="p-3 sm:p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
+                  <Code2 size={28} className="text-white sm:w-8 sm:h-8" />
                 </div>
               </div>
               
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4">
                 Hi, I'm Gilchrist
               </h2>
               
-              <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 sm:mb-6 leading-relaxed px-2 sm:px-0">
                 A passionate full-stack developer who turns ideas into powerful digital experiences
               </p>
               
-              <div className="flex justify-center space-x-6 text-white/80">
+              <div className="flex justify-center space-x-4 sm:space-x-6 text-white/80">
                 <div className="text-center">
-                  <div className="text-2xl font-bold">5+</div>
-                  <div className="text-sm">Years</div>
+                  <div className="text-xl sm:text-2xl font-bold">5+</div>
+                  <div className="text-xs sm:text-sm">Years</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold">25+</div>
-                  <div className="text-sm">Projects</div>
+                  <div className="text-xl sm:text-2xl font-bold">25+</div>
+                  <div className="text-xs sm:text-sm">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold">10+</div>
-                  <div className="text-sm">Technologies</div>
+                  <div className="text-xl sm:text-2xl font-bold">10+</div>
+                  <div className="text-xs sm:text-sm">Technologies</div>
                 </div>
               </div>
             </div>
@@ -74,10 +74,11 @@ const AboutPreview = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
+            className="px-4 sm:px-0"
           >
             <Link
               href="/about"
-              className="inline-flex items-center space-x-3 btn-primary group text-lg"
+              className="inline-flex items-center space-x-3 btn-primary group text-base sm:text-lg w-full sm:w-auto justify-center"
             >
               <span>Discover My Story</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
