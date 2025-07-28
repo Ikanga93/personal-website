@@ -25,7 +25,8 @@ import {
   SiRender,
   SiRailway
 } from 'react-icons/si'
-import { Database, Users, MessageSquare, BookOpen, Target, User } from 'lucide-react'
+import { Database, Users, MessageSquare, BookOpen, Target, User, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const Skills = () => {
   // All skills in one array for floating layout
@@ -159,7 +160,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-6 mt-12"
+          className="flex flex-wrap justify-center gap-6 mt-12 mb-8"
         >
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
@@ -177,6 +178,23 @@ const Skills = () => {
             <div className="w-4 h-4 bg-primary-500 rounded-full"></div>
             <span className="text-sm text-gray-600">Soft Skills</span>
           </div>
+        </motion.div>
+
+        {/* Call to Action Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link
+            href="/skills"
+            className="inline-flex items-center space-x-3 btn-primary group text-lg"
+          >
+            <span>View All Skills & Expertise</span>
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </motion.div>
       </div>
     </section>

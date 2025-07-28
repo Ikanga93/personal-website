@@ -1,88 +1,88 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Code, Database, Layers } from 'lucide-react'
+import { ArrowRight, Code2 } from 'lucide-react'
 import Link from 'next/link'
 
 const AboutPreview = () => {
-  const developmentAreas = [
-    {
-      icon: <Layers className="w-8 h-8" />,
-      title: "Full-Stack",
-      description: "End-to-end development",
-      gradient: "from-blue-500 to-purple-600"
-    },
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: "Frontend",
-      description: "Beautiful user interfaces",
-      gradient: "from-green-500 to-teal-600"
-    },
-    {
-      icon: <Database className="w-8 h-8" />,
-      title: "Backend",
-      description: "Scalable server solutions",
-      gradient: "from-orange-500 to-red-600"
-    }
-  ]
-
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-gray-50">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
-            About Me
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A passionate full-stack developer with expertise in modern web technologies, 
-            dedicated to creating exceptional digital experiences.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {developmentAreas.map((area, index) => (
-            <motion.div
-              key={area.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative p-8 rounded-2xl bg-gradient-to-br ${area.gradient} text-white shadow-lg overflow-hidden group cursor-pointer`}
-            >
-              <div className="relative z-10">
-                <div className="mb-4 text-white/90">
-                  {area.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{area.title}</h3>
-                <p className="text-white/90 leading-relaxed">
-                  {area.description}
-                </p>
-              </div>
-              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Link
-            href="/about"
-            className="inline-flex items-center space-x-2 btn-primary group"
+          {/* Single Engaging Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+            className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-xl overflow-hidden group cursor-pointer mb-8"
           >
-            <span>Learn More About Me</span>
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="flex justify-center mb-6">
+                <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
+                  <Code2 size={32} className="text-white" />
+                </div>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                Hi, I'm Gilchrist
+              </h2>
+              
+              <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed">
+                A passionate full-stack developer who turns ideas into powerful digital experiences
+              </p>
+              
+              <div className="flex justify-center space-x-6 text-white/80">
+                <div className="text-center">
+                  <div className="text-2xl font-bold">5+</div>
+                  <div className="text-sm">Years</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">25+</div>
+                  <div className="text-sm">Projects</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold">10+</div>
+                  <div className="text-sm">Technologies</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Hover Effect */}
+            <motion.div
+              className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              initial={false}
+            />
+          </motion.div>
+
+          {/* Call to Action Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              href="/about"
+              className="inline-flex items-center space-x-3 btn-primary group text-lg"
+            >
+              <span>Discover My Story</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
