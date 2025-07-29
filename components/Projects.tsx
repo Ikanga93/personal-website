@@ -43,7 +43,7 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Real-world applications showcasing innovation across AI, nonprofit, and web development
+            Functional products people actually use, built with AI-first development and rapid iteration
           </p>
         </motion.div>
 

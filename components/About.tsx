@@ -10,59 +10,59 @@ const About = () => {
   const developmentAreas = [
     {
       id: 'fullstack',
-      title: "Full-Stack Developer",
+      title: "AI-First Product Engineer",
       icon: <Layers className="w-8 h-8" />,
       color: "from-purple-500 to-indigo-600",
       hoverColor: "group-hover:from-purple-600 group-hover:to-indigo-700",
-      description: "End-to-end application development with seamless integration between frontend and backend systems.",
-      skills: ["System Architecture", "API Design", "Database Design", "DevOps", "Cloud Deployment"],
+      description: "End-to-end product ownership from customer interviews to live, scaling solutions using AI-powered development.",
+      skills: ["Claude Code", "Rapid Prototyping", "Customer Onboarding", "AI Tooling", "Product Intuition"],
       experience: "5+ Years",
-      projects: "20+ Projects"
+      projects: "20+ Products"
     },
     {
       id: 'frontend',
-      title: "Frontend Specialist",
+      title: "Vibe Code Frontend",
       icon: <Monitor className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-600",
       hoverColor: "group-hover:from-blue-600 group-hover:to-cyan-700",
-      description: "Creating beautiful, responsive user interfaces with modern frameworks and exceptional user experiences.",
-      skills: ["React/Next.js", "TypeScript", "UI/UX Design", "Responsive Design", "Performance Optimization"],
+      description: "Quick feedback loops with AI pair programming to ship user-facing features that people actually use.",
+      skills: ["React/Next.js", "AI-Assisted Development", "User Feedback Integration", "Rapid Iteration", "Product Taste"],
       experience: "4+ Years",
-      projects: "15+ Projects"
+      projects: "15+ Live Products"
     },
     {
       id: 'backend',
-      title: "Backend Engineer",
+      title: "Systems & Automation",
       icon: <Server className="w-8 h-8" />,
       color: "from-green-500 to-emerald-600",
       hoverColor: "group-hover:from-green-600 group-hover:to-emerald-700",
-      description: "Building robust, scalable server-side applications with secure APIs and efficient database management.",
-      skills: ["Node.js/Python", "REST APIs", "Database Management", "Authentication", "Server Architecture"],
+      description: "Building scalable infrastructure and automating workflows to handle real-world edge cases at scale.",
+      skills: ["Node.js/Python", "Workflow Automation", "LLM Integration", "Webhooks", "Scalable Systems"],
       experience: "4+ Years",
-      projects: "18+ Projects"
+      projects: "18+ Systems"
     }
   ]
 
   const personalHighlights = [
     {
       icon: <Code className="w-6 h-6" />,
-      title: "Clean Code Advocate",
-      description: "Writing maintainable, well-documented code that scales"
+      title: "AI-Powered Development",
+      description: "Leveraging Claude Code and smart tooling for rapid iteration"
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Problem Solver",
-      description: "Turning complex challenges into elegant solutions"
+      title: "Ambiguity Navigator",
+      description: "Thriving in high-ambiguity, high-agency environments"
     },
     {
       icon: <Smartphone className="w-6 h-6" />,
-      title: "User-Focused",
-      description: "Creating experiences that users love and understand"
+      title: "Customer-Obsessed",
+      description: "From user interviews to working prototypes in record time"
     },
     {
       icon: <Database className="w-6 h-6" />,
-      title: "Performance Driven",
-      description: "Optimizing for speed, efficiency, and scalability"
+      title: "Ship Fast, Learn Fast",
+      description: "Quick feedback loops with direct user validation"
     }
   ]
 
@@ -80,9 +80,9 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            I'm Gilchrist Ekuke, a passionate full-stack developer who transforms ideas into 
-            powerful digital solutions. With expertise across the entire development spectrum, 
-            I create applications that not only function flawlessly but also deliver exceptional user experiences.
+            I'm Gilchrist Ekuke, an AI-first product engineer who turns customer problems into working solutions fast. 
+            I thrive in high-ambiguity environments, leveraging AI tools like Claude Code to ship functional products 
+            that people actually use. Think like a PM, build like an engineer.
           </p>
         </motion.div>
 

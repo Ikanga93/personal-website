@@ -42,7 +42,7 @@ const AboutPreview = () => {
               </h2>
               
               <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 sm:mb-6 leading-relaxed px-2 sm:px-0">
-                A passionate full-stack developer who turns ideas into powerful digital experiences
+                An AI-first product engineer who thrives in ambiguity and ships fast with smart tooling
               </p>
               
               <div className="flex justify-center space-x-4 sm:space-x-6 text-white/80">

@@ -5,8 +5,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About Me - Gilchrist Ekuke',
-  description: 'Learn more about Gilchrist Ekuke, a passionate full-stack developer with expertise in modern web technologies, frontend development, and backend engineering.',
-  keywords: 'about Gilchrist Ekuke, full-stack developer, frontend specialist, backend engineer, web developer portfolio',
+  description: 'Learn more about Gilchrist Ekuke, an AI-first product engineer who builds functional products using intelligent AI collaboration and rapid iteration.',
+  keywords: 'about Gilchrist Ekuke, AI-first product engineer, vibe coder, AI-assisted development, product engineering, rapid prototyping',
 }
 
 export default function AboutPage() {

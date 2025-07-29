@@ -149,19 +149,23 @@ const ContactDetailed = () => {
   const faqs = [
     {
       question: "What's your typical project timeline?",
-      answer: "Most projects take 2-8 weeks depending on complexity. Simple websites can be completed in 1-2 weeks, while complex web applications may take 6-8 weeks. I provide detailed timelines during the planning phase."
+      answer: "With AI-assisted development, I can deliver functional prototypes in days, not weeks. Full projects typically take 2-6 weeks. I use rapid iteration cycles with continuous user feedback to ensure we're building the right thing fast."
     },
     {
       question: "Do you work with international clients?",
       answer: "Absolutely! I work with clients worldwide and am comfortable with remote collaboration. I'm in EST timezone but can accommodate different time zones for meetings and communication."
     },
     {
+      question: "What's your development approach?",
+      answer: "I use AI-first product engineering with intelligent collaboration. I leverage AI tools like Claude Code for rapid iteration while maintaining strong architectural decisions. Every project starts with customer interviews and ends with products people actually use."
+    },
+    {
       question: "What's included in your development services?",
-      answer: "Full project includes planning, design, development, testing, deployment, and 30 days of post-launch support. You'll also receive all source code, documentation, and training if needed."
+      answer: "End-to-end product ownership from customer interviews to live, scaling solutions. Includes AI-assisted rapid prototyping, user feedback integration, deployment, and ongoing optimization. You get functional products, not just code."
     },
     {
       question: "How do you handle project communication?",
-      answer: "I provide regular updates through your preferred communication channel (email, Slack, etc.). You'll receive weekly progress reports and can schedule calls as needed throughout the project."
+      answer: "I believe in direct user feedback and quick iteration cycles. You'll be involved in the process with working prototypes to test within days. Regular check-ins ensure we're solving the right problems with the right solutions."
     },
     {
       question: "What if I need changes after the project is complete?",
@@ -170,14 +174,14 @@ const ContactDetailed = () => {
   ]
 
   const projectTypes = [
-    "Full-Stack Web Application",
-    "Frontend Development",
-    "Backend API Development",
-    "AI/ML Integration",
-    "E-commerce Platform",
-    "Portfolio/Landing Page",
-    "MVP Development",
-    "Code Review/Consulting",
+    "AI-First Product Development",
+    "Customer Onboarding Systems",
+    "Rapid MVP Prototyping",
+    "AI Tool Integration",
+    "User Feedback Platforms",
+    "Workflow Automation",
+    "Product Engineering Consulting",
+    "Team AI Collaboration Setup",
     "Other"
   ]
 

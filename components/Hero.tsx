@@ -3,8 +3,28 @@
 import { ArrowRight, Download } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0)
+  const [photoOpacity, setPhotoOpacity] = useState(1)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
+      
+      // Fade out the photo as user scrolls down (starts fading at 200px, fully hidden at 400px)
+      const fadeStart = 200
+      const fadeEnd = 400
+      const opacity = Math.max(0, Math.min(1, 1 - (currentScrollY - fadeStart) / (fadeEnd - fadeStart)))
+      setPhotoOpacity(opacity)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -30,12 +50,12 @@ const Hero = () => {
             </h1>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-4 sm:mb-6">
-              Full-Stack Developer
+              AI-First Product Engineer
             </h2>
             
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0">
-              I craft exceptional digital experiences with modern web technologies,
-              turning ideas into elegant, scalable solutions that drive business growth.
+              I build functional products people actually use by leveraging AI tools for rapid iteration.
+              From customer interviews to working prototypes—I turn ambiguous problems into scalable solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0 justify-center lg:justify-start">
@@ -65,6 +85,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative order-1 lg:order-2"
+            style={{ opacity: photoOpacity }}
           >
             <div className="relative w-64 sm:w-80 md:w-96 lg:w-full max-w-sm mx-auto">
               <div className="aspect-square relative overflow-hidden rounded-full bg-gradient-to-br from-primary-100 to-primary-200 shadow-2xl">

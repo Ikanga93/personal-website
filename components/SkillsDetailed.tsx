@@ -34,6 +34,41 @@ import { Database, Users, MessageSquare, BookOpen, Target, User, Code2, Server, 
 const SkillsDetailed = () => {
   const skillCategories = [
     {
+      title: "AI-Assisted Development",
+      icon: <Lightbulb className="w-8 h-8" />,
+      color: "from-purple-500 to-pink-600",
+      skills: [
+        {
+          name: "Claude Code",
+          icon: <Code2 className="w-6 h-6 text-[#FF6B35]" />,
+          level: 95,
+          years: "2+",
+          description: "Expert at AI pair programming, rapid prototyping, and intelligent code generation. Use AI to accelerate development while maintaining code quality and architectural decisions."
+        },
+        {
+          name: "AI-First Product Engineering",
+          icon: <Target className="w-6 h-6 text-[#4F46E5]" />,
+          level: 90,
+          years: "3+",
+          description: "Leveraging AI tools for customer research, rapid iteration, and turning user feedback into working prototypes within hours, not days."
+        },
+        {
+          name: "Prompt Engineering",
+          icon: <MessageSquare className="w-6 h-6 text-[#10B981]" />,
+          level: 85,
+          years: "2+",
+          description: "Crafting effective prompts for development tasks, code review, architecture decisions, and technical documentation generation."
+        },
+        {
+          name: "AI Tool Integration",
+          icon: <Wrench className="w-6 h-6 text-[#F59E0B]" />,
+          level: 90,
+          years: "2+",
+          description: "Integrating LLMs, voice processing, and AI APIs into production applications. Building AI-powered features that users actually use."
+        }
+      ]
+    },
+    {
       title: "Frontend Development",
       icon: <Code2 className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-600",

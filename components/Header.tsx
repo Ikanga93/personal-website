@@ -1,30 +1,50 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Home, User, Code, FolderOpen, Mail, Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
+  const [showProfileInNav, setShowProfileInNav] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
+      setIsScrolled(currentScrollY > 20)
+      
+      // Only show animated profile on main page, always show on other pages
+      if (pathname === '/') {
+        // Show profile in nav when scrolled past hero section (around 400px)
+        setShowProfileInNav(currentScrollY > 400)
+      } else {
+        // Always show profile photo on other pages
+        setShowProfileInNav(true)
+      }
     }
+    
     window.addEventListener('scroll', handleScroll)
+    // Set initial state based on current page
+    if (pathname !== '/') {
+      setShowProfileInNav(true)
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/skills', label: 'Skills' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/about', label: 'About', icon: User },
+    { href: '/skills', label: 'Skills', icon: Code },
+    { href: '/projects', label: 'Projects', icon: FolderOpen },
+    { href: '/contact', label: 'Contact', icon: Mail },
   ]
 
   const isActive = (href: string) => {
@@ -42,61 +62,243 @@ const Header = () => {
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="font-display font-bold text-2xl text-gradient">
-            Gilchrist Ekuke
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                  isActive(link.href)
-                    ? 'text-primary-600'
-                    : 'text-gray-600'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="flex items-center space-x-3 h-full">
+            {/* Animated Profile Photo */}
+            <AnimatePresence>
+              {showProfileInNav && (
+                <motion.div
+                  initial={pathname === '/' ? { scale: 0, opacity: 0, x: -50 } : { scale: 1, opacity: 1, x: 0 }}
+                  animate={{ scale: 1, opacity: 1, x: 0 }}
+                  exit={pathname === '/' ? { scale: 0, opacity: 0, x: -50 } : { scale: 1, opacity: 1, x: 0 }}
+                  transition={pathname === '/' ? { 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 25,
+                    duration: 0.6
+                  } : {
+                    duration: 0
+                  }}
+                  className="relative flex items-center"
+                >
+                  <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-200 shadow-lg mt-1 sm:mt-0">
+                    <Image
+                      src="/assets/gieprofile.jpeg"
+                      alt="Gilchrist Ekuke"
+                      width={40}
+                      height={40}
+                      className="object-cover object-center"
+                      style={{ objectPosition: 'center 20%' }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* Initials */}
+            <Link href="/" className="font-display font-bold text-3xl text-gradient hover:text-primary-600 transition-colors duration-300 tracking-wide">
+              GE
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+          {/* Desktop Navigation - Always visible on md+ screens */}
+          <div className="hidden md:flex items-center space-x-4">
+            {navLinks.map((link, index) => {
+              const IconComponent = link.icon
+              const isCurrentPage = isActive(link.href)
+              return (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href={link.href}
+                    prefetch={true}
+                    className={`group relative flex flex-col items-center p-3 rounded-xl transition-all duration-300 ease-out ${
+                      isCurrentPage
+                        ? 'text-primary-600 bg-primary-100 border-2 border-primary-200'
+                        : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50 border-2 border-transparent hover:border-primary-100'
+                    }`}
+                    title={link.label}
+                  >
+                    {/* Icon with subtle animations */}
+                    <motion.div
+                      className="relative"
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <IconComponent 
+                        size={22} 
+                        className={`transition-all duration-300 ${
+                          isCurrentPage ? 'drop-shadow-sm' : ''
+                        }`}
+                      />
+                      {/* Active indicator */}
+                      {isCurrentPage && (
+                        <motion.div
+                          className="absolute -top-1 -right-1 w-2 h-2 bg-primary-500 rounded-full"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
+                    </motion.div>
+                    
+                    {/* Label with slide animation */}
+                    <motion.span 
+                      className={`text-xs mt-1.5 font-medium transition-all duration-300 ${
+                        isCurrentPage ? 'text-primary-700' : 'text-gray-500 group-hover:text-primary-600'
+                      }`}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      {link.label}
+                    </motion.span>
+                  </Link>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Modern Animated Hamburger Menu Button - Only visible on mobile */}
+          <motion.button
+            className="md:hidden relative p-3 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 hover:from-primary-50 hover:to-primary-100 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle navigation menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+              {/* Top line */}
+              <motion.div
+                className="w-5 h-0.5 bg-gray-700 rounded-full"
+                animate={{
+                  rotate: isMobileMenuOpen ? 45 : 0,
+                  y: isMobileMenuOpen ? 6 : 0,
+                  backgroundColor: isMobileMenuOpen ? '#dc2626' : '#374151'
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+              
+              {/* Middle line */}
+              <motion.div
+                className="w-5 h-0.5 bg-gray-700 rounded-full my-1"
+                animate={{
+                  opacity: isMobileMenuOpen ? 0 : 1,
+                  scale: isMobileMenuOpen ? 0 : 1
+                }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+              />
+              
+              {/* Bottom line */}
+              <motion.div
+                className="w-5 h-0.5 bg-gray-700 rounded-full"
+                animate={{
+                  rotate: isMobileMenuOpen ? -45 : 0,
+                  y: isMobileMenuOpen ? -6 : 0,
+                  backgroundColor: isMobileMenuOpen ? '#dc2626' : '#374151'
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+              
+              {/* Animated background circle */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-primary-200/30"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{
+                  scale: isMobileMenuOpen ? 1.2 : 0,
+                  opacity: isMobileMenuOpen ? 1 : 0
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+            </div>
+          </motion.button>
+
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white border-t border-gray-100 py-4"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary-600 hover:bg-gray-50 ${
-                  isActive(link.href)
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-gray-600'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
+        {/* Mobile Navigation Menu - Reveals icons vertically on the right */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden fixed top-20 right-0 w-20 bg-white/95 backdrop-blur-md border-l border-gray-100 shadow-lg z-40"
+            >
+              <div className="py-4">
+                <div className="flex flex-col items-center space-y-4">
+                  {navLinks.map((link, index) => {
+                    const IconComponent = link.icon
+                    const isCurrentPage = isActive(link.href)
+                    return (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        exit={{ opacity: 0, scale: 0.8, x: 20 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Link
+                          href={link.href}
+                          prefetch={true}
+                          className={`group relative flex flex-col items-center p-3 rounded-lg transition-all duration-300 ease-out ${
+                            isCurrentPage
+                              ? 'text-primary-600 bg-primary-100 border-2 border-primary-200'
+                              : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50 border-2 border-transparent hover:border-primary-100'
+                          }`}
+                          title={link.label}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {/* Icon with subtle animations */}
+                          <motion.div
+                            className="relative"
+                            whileHover={{ y: -2 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <IconComponent 
+                              size={20} 
+                              className={`transition-all duration-300 ${
+                                isCurrentPage ? 'drop-shadow-sm' : ''
+                              }`}
+                            />
+                            {/* Active indicator */}
+                            {isCurrentPage && (
+                              <motion.div
+                                className="absolute -top-1 -right-1 w-2 h-2 bg-primary-500 rounded-full"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                              />
+                            )}
+                          </motion.div>
+                          
+                          {/* Label */}
+                          <motion.span 
+                            className={`text-xs mt-1 font-medium transition-all duration-300 text-center ${
+                              isCurrentPage ? 'text-primary-700' : 'text-gray-500 group-hover:text-primary-600'
+                            }`}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            {link.label}
+                          </motion.span>
+                        </Link>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </motion.header>
   )
