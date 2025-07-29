@@ -33,7 +33,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white pt-16 sm:pt-20">
+    <section id="hero" className="min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white pt-24 sm:pt-32 md:pt-40">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -87,7 +87,7 @@ const Hero = () => {
             className="relative order-1 lg:order-2"
             style={{ opacity: photoOpacity }}
           >
-            <div className="relative w-64 sm:w-80 md:w-96 lg:w-full max-w-sm mx-auto">
+            <div className="relative w-64 sm:w-80 md:w-96 lg:w-full max-w-sm mx-auto mt-8 sm:mt-12 md:mt-16 lg:mt-0">
               <div className="aspect-square relative overflow-hidden rounded-full bg-gradient-to-br from-primary-100 to-primary-200 shadow-2xl">
                 <Image
                   src="/assets/gieprofile.jpeg"
