@@ -24,7 +24,7 @@ const Contact = () => {
             className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8"
           >
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            Available for New Projects
+            Available for Opportunities
           </motion.div>
 
           {/* Main Card */}
@@ -59,15 +59,15 @@ const Contact = () => {
               
               <div className="flex justify-center space-x-4 sm:space-x-8 text-white/80">
                 <div className="text-center">
-                  <div className="text-lg sm:text-2xl font-bold">2-4hrs</div>
+                  <div className="text-lg sm:text-2xl font-bold">1-4hrs</div>
                   <div className="text-xs sm:text-sm">Response Time</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-2xl font-bold">Free</div>
-                  <div className="text-xs sm:text-sm">Consultation</div>
+                  {/* <div className="text-lg sm:text-2xl font-bold">Free</div> */}
+                  {/* <div className="text-xs sm:text-sm">Consultation</div> */}
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-2xl font-bold">EST</div>
+                  <div className="text-lg sm:text-2xl font-bold">CT</div>
                   <div className="text-xs sm:text-sm">Timezone</div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const Contact = () => {
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8"
           >
             <a
-              href="mailto:hello@gilchristekuke.com"
+              href="mailto:gekuke1@ritt.ai"
               className="inline-flex items-center justify-center space-x-2 bg-white text-primary-600 px-4 sm:px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 group border border-primary-200 text-sm sm:text-base"
             >
               <Mail size={16} className="sm:w-5 sm:h-5" />

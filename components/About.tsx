@@ -15,31 +15,31 @@ const About = () => {
       color: "from-purple-500 to-indigo-600",
       hoverColor: "group-hover:from-purple-600 group-hover:to-indigo-700",
       description: "End-to-end product ownership from customer interviews to live, scaling solutions using AI-powered development.",
-      skills: ["Claude Code", "Rapid Prototyping", "Customer Onboarding", "AI Tooling", "Product Intuition"],
-      experience: "5+ Years",
-      projects: "20+ Products"
+      skills: ["Cursor", "Windsurf", "Claude Code", "Rapid Prototyping", "Customer Onboarding", "AI Tooling", "Product Intuition"],
+      experience: "2+ Years",
+      projects: "10+ Products"
     },
     {
       id: 'frontend',
-      title: "Vibe Code Frontend",
+      title: "Frontend Development",
       icon: <Monitor className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-600",
       hoverColor: "group-hover:from-blue-600 group-hover:to-cyan-700",
       description: "Quick feedback loops with AI pair programming to ship user-facing features that people actually use.",
       skills: ["React/Next.js", "AI-Assisted Development", "User Feedback Integration", "Rapid Iteration", "Product Taste"],
-      experience: "4+ Years",
-      projects: "15+ Live Products"
+      experience: "2+ Years",
+      projects: "5+ Live Products"
     },
     {
       id: 'backend',
-      title: "Systems & Automation",
+      title: "Backend Development",
       icon: <Server className="w-8 h-8" />,
       color: "from-green-500 to-emerald-600",
       hoverColor: "group-hover:from-green-600 group-hover:to-emerald-700",
       description: "Building scalable infrastructure and automating workflows to handle real-world edge cases at scale.",
       skills: ["Node.js/Python", "Workflow Automation", "LLM Integration", "Webhooks", "Scalable Systems"],
-      experience: "4+ Years",
-      projects: "18+ Systems"
+      experience: "2+ Years",
+      projects: "5+ Systems"
     }
   ]
 
@@ -81,7 +81,7 @@ const About = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             I'm Gilchrist Ekuke, an AI-first product engineer who turns customer problems into working solutions fast. 
-            I thrive in high-ambiguity environments, leveraging AI tools like Claude Code to ship functional products 
+            I thrive in high-ambiguity environments, leveraging AI tools like Cursor to ship functional products 
             that people actually use. Think like a PM, build like an engineer.
           </p>
         </motion.div>
@@ -237,10 +237,8 @@ const About = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
           {[
-            { number: "25+", label: "Projects Completed" },
-            { number: "5+", label: "Years Experience" },
-            { number: "10+", label: "Technologies Mastered" },
-            { number: "100%", label: "Client Satisfaction" }
+            { number: "10+", label: "Projects Completed" },
+            { number: "2+", label: "Years Experience" },
           ].map((stat, index) => (
             <div key={index} className="group">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform">

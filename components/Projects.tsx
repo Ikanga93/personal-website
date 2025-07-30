@@ -7,25 +7,25 @@ import Link from 'next/link'
 const Projects = () => {
   const featuredProjects = [
     {
+      title: "AI-Powered Food Order Taker",
+      description: "Real-time voice ordering interface",
+      icon: <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />,
+      color: "from-orange-500 to-red-600",
+      year: "2025"
+    },
+    {
       title: "Ritt.ai",
       description: "AI-powered drive-thru assistant with 99.5% accuracy",
       icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-blue-500 to-purple-600",
-      year: "2024"
+      year: "2025"
     },
     {
       title: "Ofele Nonprofit",
-      description: "Community management platform serving 500+ users",
+      description: "Community management platform serving 12+ users",
       icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-green-500 to-teal-600",
-      year: "2024"
-    },
-    {
-      title: "Voice AI Frontend",
-      description: "Real-time voice ordering interface",
-      icon: <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />,
-      color: "from-orange-500 to-red-600",
-      year: "2024"
+      year: "2025"
     }
   ]
 
@@ -101,8 +101,8 @@ const Projects = () => {
           {[
             { number: "6+", label: "Projects Built" },
             { number: "99.5%", label: "AI Accuracy" },
-            { number: "500+", label: "Active Users" },
-            { number: "100%", label: "Client Success" }
+            { number: "12+", label: "Active Users" },
+            // { number: "100%", label: "Client Success" }
           ].map((stat, index) => (
             <div key={index} className="group">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform">

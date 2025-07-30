@@ -10,7 +10,7 @@ const ProjectsDetailed = () => {
       id: 1,
       title: "Ritt.ai - AI Drive-Thru Assistant",
       shortDescription: "Revolutionary AI-powered order-taking system for drive-thru restaurants",
-      longDescription: "Led product engineering for Ritt.ai, collaborating with AI specialists and restaurant partners to build a drive-thru assistant with 99.5% accuracy. Used AI-assisted development to rapidly prototype and iterate based on real customer feedback, reducing wait times by 40% through intelligent order processing.",
+      longDescription: "Built Ritt.ai, an AI-powered drive-thru assistant with 99.5% accuracy. Used AI-assisted development to rapidly prototype and iterate based on real customer feedback, reducing wait times by 40% through intelligent order processing.",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop&auto=format&q=80",
       category: "AI/ML Application",
       tech: ["React", "Next.js", "AI/ML", "Voice Processing", "Node.js", "TypeScript", "WebSocket", "Cloud APIs"],
@@ -60,9 +60,9 @@ const ProjectsDetailed = () => {
       year: "2024",
       featured: true,
       impact: {
-        metric1: { value: "500+", label: "Active Users" },
-        metric2: { value: "$50K+", label: "Donations Processed" },
-        metric3: { value: "15", label: "Partner Organizations" }
+        metric1: { value: "12+", label: "Active Users" },
+        // metric2: { value: "$50K+", label: "Donations Processed" },
+        // metric3: { value: "15", label: "Partner Organizations" }
       },
       challenges: [
         "Creating secure donation processing system",
@@ -100,9 +100,9 @@ const ProjectsDetailed = () => {
       year: "2024",
       featured: true,
       impact: {
-        metric1: { value: "98%", label: "User Satisfaction" },
-        metric2: { value: "2.5s", label: "Response Time" },
-        metric3: { value: "100+", label: "Restaurants Using" }
+        //metric1: { value: "98%", label: "User Satisfaction" },
+        //metric2: { value: "2.5s", label: "Response Time" },
+        //metric3: { value: "100+", label: "Restaurants Using" }
       },
       challenges: [
         "Creating responsive voice visualization components",
@@ -141,8 +141,8 @@ const ProjectsDetailed = () => {
       featured: false,
       impact: {
         metric1: { value: "95%", label: "Order Accuracy" },
-        metric2: { value: "1000+", label: "Orders Processed" },
-        metric3: { value: "4.8/5", label: "Customer Rating" }
+        //metric2: { value: "1000+", label: "Orders Processed" },
+        //metric3: { value: "4.8/5", label: "Customer Rating" }
       },
       challenges: [
         "Implementing real-time order tracking",
