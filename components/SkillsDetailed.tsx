@@ -39,7 +39,7 @@ const SkillsDetailed = () => {
       color: "from-purple-500 to-pink-600",
       skills: [
         {
-          name: "Claude Code",
+          name: "Cursor",
           icon: <Code2 className="w-6 h-6 text-[#FF6B35]" />,
           level: 95,
           years: "2+",
@@ -156,13 +156,6 @@ const SkillsDetailed = () => {
           level: 85,
           years: "3+",
           description: "Complex queries, indexing, performance optimization, and database design for scalable applications."
-        },
-        {
-          name: "MongoDB",
-          icon: <SiMongodb className="w-6 h-6 text-[#47A248]" />,
-          level: 80,
-          years: "3+",
-          description: "NoSQL database design, aggregation pipelines, indexing strategies, and integration with Node.js."
         }
       ]
     },
@@ -373,10 +366,10 @@ const SkillsDetailed = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { name: "Redis", icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
-              { name: "GraphQL", icon: <SiGraphql className="w-5 h-5 text-[#E10098]" /> },
-              { name: "Jest", icon: <SiJest className="w-5 h-5 text-[#C21325]" /> },
-              { name: "Prisma", icon: <SiPrisma className="w-5 h-5 text-[#2D3748]" /> },
+              //{ name: "Redis", icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
+              //{ name: "GraphQL", icon: <SiGraphql className="w-5 h-5 text-[#E10098]" /> },
+              //{ name: "Jest", icon: <SiJest className="w-5 h-5 text-[#C21325]" /> },
+              //{ name: "Prisma", icon: <SiPrisma className="w-5 h-5 text-[#2D3748]" /> },
               { name: "Supabase", icon: <SiSupabase className="w-5 h-5 text-[#3ECF8E]" /> },
               { name: "Railway", icon: <SiRailway className="w-5 h-5 text-[#0B0D0E]" /> },
               { name: "Render", icon: <SiRender className="w-5 h-5 text-[#46E3B7]" /> }

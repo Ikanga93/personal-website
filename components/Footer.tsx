@@ -25,25 +25,25 @@ const Footer = () => {
   const socialLinks = [
     { 
       name: 'GitHub', 
-      url: 'https://github.com/gilchristekuke',
+      url: 'https://github.com/Ikanga93',
       icon: <Github className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: 'hover:text-gray-300'
+      color: 'hover:text-gray-400'
     },
     { 
       name: 'LinkedIn', 
-      url: 'https://linkedin.com/in/gilchristekuke',
+      url: 'https://www.linkedin.com/in/gilchrist-ekuke-b5194017b/',
       icon: <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: 'hover:text-blue-400'
     },
     { 
       name: 'Twitter', 
-      url: 'https://twitter.com/gilchristekuke',
+      url: 'https://x.com/gilchrist_ekuke',
       icon: <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: 'hover:text-blue-400'
     },
     { 
       name: 'Email', 
-      url: 'mailto:hello@gilchristekuke.com',
+      url: 'mailto:gekuke1@ritt.ai',
       icon: <Mail className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: 'hover:text-red-400'
     }
@@ -60,12 +60,12 @@ const Footer = () => {
     { name: 'Full-Stack Development', href: '#contact' },
     { name: 'Frontend Design', href: '#contact' },
     { name: 'Backend APIs', href: '#contact' },
-    { name: 'Mobile Apps', href: '#contact' }
+    // { name: 'Mobile Apps', href: '#contact' }
   ]
 
   const recentProjects = [
     { name: 'Ofele Nonprofit App', url: 'https://ofele-nonprofit-app.vercel.app/' },
-    { name: 'Ritt.ai Assistant', url: 'https://ritt.ai/' },
+    { name: 'Ritt.ai Assistant', url: 'https://ritt-ai-assistant-frontend.onrender.com/' },
     { name: 'Mo\'s Burrito App', url: 'https://mo-s-burrito-app-production.up.railway.app/' }
   ]
 
@@ -118,7 +118,7 @@ const Footer = () => {
 
                 <div className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-gray-500">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  Available for new projects
+                  Available for opportunities
                 </div>
               </div>
             </motion.div>
@@ -196,9 +196,9 @@ const Footer = () => {
                 ))}
               </ul>
             </motion.div>
-
+            
             {/* Newsletter */}
-            <motion.div
+            {/*<motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -238,7 +238,7 @@ const Footer = () => {
                   </button>
                 </form>
               )}
-            </motion.div>
+            </motion.div>*/}
           </div>
         </div>
 

@@ -1,13 +1,36 @@
 'use client'
 
-import { ArrowRight, Download } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { ArrowRight, Download } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+
+// Custom hook for typewriter effect
+const useTypewriter = (text: string, speed: number = 100) => {
+  const [displayText, setDisplayText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isComplete, setIsComplete] = useState(false)
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, speed)
+
+      return () => clearTimeout(timeout)
+    } else {
+      setIsComplete(true)
+    }
+  }, [currentIndex, text, speed])
+
+  return { displayText, isComplete }
+}
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0)
   const [photoOpacity, setPhotoOpacity] = useState(1)
+  const { displayText: typedName, isComplete } = useTypewriter('Gilchrist Ekuke', 120)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +67,18 @@ const Hero = () => {
             className="text-center lg:text-left order-2 lg:order-1"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-gradient mb-4 sm:mb-6 leading-tight">
-              Gilchrist Ekuke
+              {typedName}
+              <motion.span
+                className="inline-block w-1 h-12 sm:h-14 md:h-16 lg:h-20 bg-gradient-to-b from-blue-600 to-purple-600 ml-1"
+                animate={{
+                  opacity: isComplete ? 0 : [1, 0, 1],
+                }}
+                transition={{
+                  duration: 1,
+                  repeat: isComplete ? 0 : Infinity,
+                  ease: "easeInOut"
+                }}
+              />
             </h1>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-4 sm:mb-6">
@@ -57,18 +91,33 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0 justify-center lg:justify-start">
-              <button
+              <motion.button
                 onClick={() => scrollToSection('projects')}
-                className="btn-primary group justify-center w-full sm:w-auto"
+                className="btn-primary group justify-center w-full sm:w-auto relative overflow-hidden"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.4), 0 10px 10px -5px rgba(59, 130, 246, 0.04)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                View My Work
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                />
+                <span className="relative z-10 flex items-center gap-2">
+                  View My Work
+                  <motion.div
+                    className="group-hover:translate-x-1 transition-transform"
+                    whileHover={{ rotate: -45 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <ArrowRight size={20} />
+                  </motion.div>
+                </span>
+              </motion.button>
               
-              <button className="btn-secondary group justify-center w-full sm:w-auto">
-                <Download size={20} />
-                Download CV
-              </button>
+
             </div>
 
             <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm text-gray-500 px-4 sm:px-0">

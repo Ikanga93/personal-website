@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Linkedin, Github, Phone } from 'lucide-react'
+import { Mail, Linkedin, Github, Phone, Target, Zap, Users, Coffee, Clock, Calendar, CheckCircle, Send, MapPin, Globe, ArrowRight, TrendingUp } from 'lucide-react'
+import { useState } from 'react'
+import Link from 'next/link'
 
 // Custom X (Twitter) Icon Component
 const XIcon = ({ className }: { className?: string }) => (
@@ -11,6 +13,41 @@ const XIcon = ({ className }: { className?: string }) => (
 )
 
 const ContactDetailed = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    projectType: '',
+    budget: '',
+    timeline: '',
+    company: ''
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '', projectType: '', budget: '', timeline: '', company: '' })
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    }, 2000)
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const contactMethods = [
     {
@@ -648,7 +685,7 @@ const ContactDetailed = () => {
             Let's schedule a free 30-minute consultation to discuss your project and explore how we can work together.
           </p>
           <a
-            href="mailto:hello@gilchristekuke.com"
+            href="mailto:gekuke1@ritt.ai"
             className="inline-flex items-center space-x-3 bg-white text-primary-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-colors group"
           >
             <Mail size={20} />

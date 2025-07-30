@@ -8,61 +8,21 @@ const ProjectsDetailed = () => {
   const projects = [
     {
       id: 1,
-      title: "Ritt.ai - AI Drive-Thru Assistant",
-      shortDescription: "Revolutionary AI-powered order-taking system for drive-thru restaurants",
-      longDescription: "Built Ritt.ai, an AI-powered drive-thru assistant with 99.5% accuracy. Used AI-assisted development to rapidly prototype and iterate based on real customer feedback, reducing wait times by 40% through intelligent order processing.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "AI/ML Application",
-      tech: ["React", "Next.js", "AI/ML", "Voice Processing", "Node.js", "TypeScript", "WebSocket", "Cloud APIs"],
-      liveUrl: "https://ritt.ai/",
-      githubUrl: "https://github.com/gilchristekuke",
-      duration: "6 months",
-      role: "Product Engineer & Team Lead",
-      year: "2024",
-      featured: true,
-      impact: {
-        metric1: { value: "99.5%", label: "Order Accuracy" },
-        metric2: { value: "40%", label: "Reduced Wait Time" },
-        metric3: { value: "25%", label: "Increased Revenue" }
-      },
-      challenges: [
-        "Implementing real-time voice processing with low latency",
-        "Training AI model for restaurant-specific vocabulary and accents",
-        "Handling complex order modifications and special requests",
-        "Ensuring system reliability during peak hours"
-      ],
-      solutions: [
-        "Optimized WebSocket connections for real-time communication",
-        "Custom NLP model trained on restaurant industry data",
-        "Context-aware conversation flow management",
-        "Robust error handling and fallback systems"
-      ],
-      keyFeatures: [
-        "Natural Language Processing for voice orders",
-        "Intelligent upselling and cross-selling",
-        "Multi-location restaurant support",
-        "Real-time order tracking and analytics",
-        "Integration with existing POS systems"
-      ]
-    },
-    {
-      id: 2,
-      title: "Ofele Nonprofit App",
-      shortDescription: "Comprehensive nonprofit management platform for community organizations",
-      longDescription: "Collaborated with nonprofit stakeholders to build a community management platform serving 500+ users. Leveraged AI tools for rapid development cycles, turning user interviews into working features within days. Worked closely with the nonprofit team to ensure the platform met real community needs.",
+      title: "Church Program Management System",
+      shortDescription: "Web application for church intercession department program management",
+      longDescription: "Created and deployed a web application for my church's intercession department to manage programs, schedules, events, and prayer requests. Fully adopted by all 12 department members and now integrated with broader church operations.",
       image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=500&fit=crop&auto=format&q=80",
       category: "Nonprofit Management",
       tech: ["React", "Next.js", "PostgreSQL", "Tailwind CSS", "Node.js", "Express.js", "Stripe API", "Vercel"],
       liveUrl: "https://ofele-nonprofit-app.vercel.app/",
-      githubUrl: "https://github.com/gilchristekuke",
+      githubUrl: "https://github.com/Ikanga93/ofele-nonprofit-app",
       duration: "4 months",
-      role: "Product Engineer & Community Liaison",
-      year: "2024",
+      role: "Full-Stack Developer & Community Liaison",
+      year: "2025",
       featured: true,
       impact: {
         metric1: { value: "12+", label: "Active Users" },
-        // metric2: { value: "$50K+", label: "Donations Processed" },
-        // metric3: { value: "15", label: "Partner Organizations" }
+        metric2: { value: "100%", label: "Department Adoption" }
       },
       challenges: [
         "Creating secure donation processing system",
@@ -77,32 +37,31 @@ const ProjectsDetailed = () => {
         "GDPR-compliant data handling and encryption"
       ],
       keyFeatures: [
-        "Secure donation processing and receipts",
-        "Volunteer management and scheduling",
+        "Program and schedule management",
         "Event planning and registration",
-        "Donor relationship management",
+        "Prayer request",
+        //"Member communication system",
         "Financial reporting and analytics",
-        "Email communication system"
+        //"Email notification system"
       ]
     },
     {
-      id: 3,
-      title: "Ritt AI Assistant Frontend",
-      shortDescription: "Modern frontend interface for AI-powered voice ordering system",
-      longDescription: "Built the frontend interface for Ritt AI in collaboration with the backend team, using AI-assisted development to rapidly iterate on user feedback. Worked directly with restaurant staff to design intuitive interfaces, leveraging AI tools to quickly prototype and test different UX approaches.",
+      id: 2,
+      title: "AI Restaurant Order Assistant",
+      shortDescription: "AI-powered order processing assistant for late-night restaurant operations",
+      longDescription: "Built an AI-powered order processing assistant for a busy late-night restaurant. Automates order taking and payment collection, significantly boosting operational efficiency and allowing staff to focus on food prep.",
       image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Frontend Application",
-      tech: ["React", "TypeScript", "Voice API", "Real-time Communication", "Framer Motion", "Chart.js", "WebSocket"],
+      category: "AI/ML Application",
+      tech: ["AI", "React", "TypeScript", "Voice API", "Real-time Communication", "Chart.js", "WebSocket"],
       liveUrl: "https://ritt-ai-assistant-frontend.onrender.com",
-      githubUrl: "https://github.com/gilchristekuke",
+      githubUrl: "https://github.com/Ikanga93/ritt-ai-assistant",
       duration: "3 months",
-      role: "Frontend Product Engineer",
-      year: "2024",
+      role: "AI-First Engineer",
+      year: "2025",
       featured: true,
       impact: {
-        //metric1: { value: "98%", label: "User Satisfaction" },
-        //metric2: { value: "2.5s", label: "Response Time" },
-        //metric3: { value: "100+", label: "Restaurants Using" }
+        metric1: { value: "40%", label: "Efficiency Boost" },
+        metric2: { value: "24/7", label: "Operation Hours" }
       },
       challenges: [
         "Creating responsive voice visualization components",
@@ -117,32 +76,31 @@ const ProjectsDetailed = () => {
         "Comprehensive user testing and iteration"
       ],
       keyFeatures: [
-        "Real-time voice wave visualization",
-        "Order management dashboard",
-        "Analytics and reporting interface",
-        "Multi-restaurant support",
-        "Customizable UI themes",
+        "Automated order taking",
+        "Payment processing integration",
+        "Real-time order management",
+        "Staff efficiency optimization",
+        "Voice recognition technology",
         "Mobile-responsive design"
       ]
     },
     {
-      id: 4,
-      title: "Mo's Burrito App",
-      shortDescription: "Full-stack restaurant ordering and management system",
-      longDescription: "Collaborated with Mo's Burrito team to build their complete ordering system, using AI tools to accelerate development and ensure rapid delivery. Worked closely with restaurant staff to understand their workflow and built features that actually solved their daily operational challenges.",
+      id: 3,
+      title: "Online Food Ordering System",
+      shortDescription: "Custom food ordering web app reducing third-party platform reliance",
+      longDescription: "Designed a custom food ordering web app for a local restaurant, reducing reliance on third-party platforms and increasing direct sales. Currently in final negotiation for a $3,500 sale.",
       image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&h=500&fit=crop&auto=format&q=80",
       category: "Restaurant Application",
-      tech: ["React", "Node.js", "Railway", "Express.js", "MongoDB", "Socket.io", "Stripe", "JWT"],
+      tech: ["React", "Node.js", "Railway", "Express.js", "Socket.io", "Stripe", "JWT"],
       liveUrl: "https://mo-s-burrito-app-production.up.railway.app/",
-      githubUrl: "https://github.com/gilchristekuke",
+      githubUrl: "https://github.com/Ikanga93/mo-s-burrito-app",
       duration: "2 months",
-      role: "Product Engineer & Restaurant Consultant",
-      year: "2023",
-      featured: false,
+      role: "Full-Stack Developer & Restaurant Consultant",
+      year: "2025",
+      featured: true,
       impact: {
-        metric1: { value: "95%", label: "Order Accuracy" },
-        //metric2: { value: "1000+", label: "Orders Processed" },
-        //metric3: { value: "4.8/5", label: "Customer Rating" }
+        metric1: { value: "$3.5K", label: "Contract Value" },
+        metric2: { value: "100%", label: "Direct Sales" }
       },
       challenges: [
         "Implementing real-time order tracking",
@@ -162,87 +120,124 @@ const ProjectsDetailed = () => {
         "Secure payment processing",
         "Customer order history",
         "Admin dashboard",
-        "Email notifications"
+        "Third-party platform independence"
+      ]
+    },
+    {
+      id: 4,
+      title: "AI Citizenship Test Assistant",
+      shortDescription: "Voice-activated AI web app for U.S. citizenship civics test practice",
+      longDescription: "Developing a voice-activated AI web app to simulate the U.S. citizenship civics test in real time, providing an interactive way to practice and improve test readiness.",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop&auto=format&q=80",
+      category: "AI/ML Application",
+      tech: ["Python", "React", "Next.js", "AI/ML", "Voice Processing", "Node.js", "TypeScript", "WebSocket", "Cloud APIs"],
+      liveUrl: "",
+      githubUrl: "https://github.com/gilchristekuke",
+      duration: "In Development",
+      role: "Full-Stack Developer & AI Developer",
+      year: "2025",
+      featured: false,
+      impact: {
+        metric1: { value: "Real-time", label: "Test Simulation" },
+        metric2: { value: "Voice", label: "Interactive Mode" }
+      },
+      challenges: [
+        "Implementing real-time voice processing",
+        "Creating accurate test simulation",
+        "Designing intuitive user experience",
+        "Ensuring accessibility compliance"
+      ],
+      solutions: [
+        "Advanced voice recognition API integration",
+        "Comprehensive civics test database",
+        "User-centered design approach",
+        "WCAG accessibility standards implementation"
+      ],
+      keyFeatures: [
+        "Voice-activated test simulation",
+        "Real-time feedback and scoring",
+        "Interactive practice sessions",
+        "Progress tracking and analytics",
+        "Accessibility-first design",
+        "Mobile-responsive interface"
       ]
     },
     {
       id: 5,
-      title: "Personal Portfolio Website",
-      shortDescription: "Modern, responsive portfolio website built with Next.js",
-      longDescription: "A comprehensive personal portfolio website showcasing my skills, projects, and experience. Built with modern web technologies and optimized for performance, accessibility, and SEO.",
+      title: "Diaspora Project Management Platform",
+      shortDescription: "Platform for African diaspora to manage projects back home with verified inspectors",
+      longDescription: "Building a platform for African diaspora to manage projects back home through connections with verified local inspectors—aimed at reducing fraud, fostering accountability, and increasing transparency in cross-border project execution.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Portfolio Website",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "React Icons"],
-      liveUrl: "/",
-      githubUrl: "https://github.com/gilchristekuke",
-      duration: "1 month",
-      role: "Full-Stack Developer",
-      year: "2024",
+      category: "Project Management",
+      tech: ["Python", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "PostgreSQL", "Stripe"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ikanga93/pofara-trustees-web-app",
+      duration: "In Development",
+      role: "Full-Stack Developer & Product Manager",
+      year: "2025",
       featured: false,
       impact: {
-        metric1: { value: "100", label: "Lighthouse Score" },
-        metric2: { value: "<1s", label: "Load Time" },
-        metric3: { value: "100%", label: "Mobile Friendly" }
+        metric1: { value: "Fraud", label: "Reduction Focus" },
+        metric2: { value: "Cross-border", label: "Project Management" }
       },
       challenges: [
-        "Creating engaging animations without performance loss",
-        "Optimizing for Core Web Vitals",
-        "Designing for multiple device sizes",
-        "Implementing SEO best practices"
+        "Building trust in cross-border transactions",
+        "Verifying local inspector credentials",
+        "Creating transparent project tracking",
+        "Implementing secure payment systems"
       ],
       solutions: [
-        "Framer Motion with proper optimization settings",
-        "Next.js Image optimization and lazy loading",
-        "Responsive design with Tailwind CSS",
-        "Meta tags and structured data implementation"
+        "Multi-tier verification system for inspectors",
+        "Blockchain-based transparency features",
+        "Real-time project monitoring dashboard",
+        "Escrow-based payment protection"
       ],
       keyFeatures: [
-        "Responsive design across all devices",
-        "Smooth animations and transitions",
-        "SEO optimized with meta tags",
-        "Fast loading with Next.js optimization",
-        "Accessible design patterns",
-        "Interactive skill demonstrations"
+        "Verified inspector network",
+        "Real-time project monitoring",
+        "Secure payment processing",
+        "Transparency and accountability tools",
+        "Cross-border communication platform",
+        "Fraud prevention measures"
       ]
     },
     {
       id: 6,
-      title: "Task Management API",
-      shortDescription: "RESTful API for team task management and collaboration",
-      longDescription: "A robust backend API for task management applications featuring user authentication, team collaboration, real-time notifications, and comprehensive project tracking capabilities.",
+      title: "Crowdfunding Platform for African Entrepreneurs",
+      shortDescription: "Purpose-driven crowdfunding platform connecting African entrepreneurs with diaspora investors",
+      longDescription: "Developed a purpose-driven crowdfunding platform connecting African entrepreneurs with diaspora investors. Several funding requests are already in progress, focused on empowering grassroots innovation in Africa.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Backend API",
-      tech: ["Node.js", "Express.js", "PostgreSQL", "JWT", "Socket.io", "Redis", "Docker", "AWS"],
-      liveUrl: "https://task-api-docs.vercel.app",
-      githubUrl: "https://github.com/gilchristekuke",
-      duration: "3 months",
-      role: "Backend Developer",
-      year: "2023",
+      category: "Fintech Platform",
+      tech: ["Python", "PostgreSQL", "JWT", "Stripe", "React", "JavaScript", "HTML", "CSS"],
+      liveUrl: "",
+      githubUrl: "https://github.com/Ikanga93/diaspora_invest",
+      duration: "6 months",
+      role: "Full-Stack Developer & Platform Architect",
+      year: "2025",
       featured: false,
       impact: {
-        metric1: { value: "99.9%", label: "Uptime" },
-        metric2: { value: "50ms", label: "Avg Response" },
-        metric3: { value: "10K+", label: "API Calls/Day" }
+        metric1: { value: "Active", label: "Funding Requests" },
+        metric2: { value: "Diaspora", label: "Investor Network" }
       },
       challenges: [
-        "Designing scalable database architecture",
-        "Implementing efficient caching strategy",
-        "Creating comprehensive API documentation",
-        "Handling concurrent user operations"
+        "Building trust between investors and entrepreneurs",
+        "Implementing secure payment processing",
+        "Creating comprehensive project vetting",
+        "Ensuring regulatory compliance"
       ],
       solutions: [
-        "Normalized PostgreSQL schema with proper indexing",
-        "Redis caching for frequently accessed data",
-        "Swagger/OpenAPI documentation generation",
-        "Database transactions and optimistic locking"
+        "Multi-stage project verification process",
+        "Integrated Stripe for secure transactions",
+        "AI-powered project assessment tools",
+        "Compliance framework for multiple jurisdictions"
       ],
       keyFeatures: [
-        "JWT-based authentication system",
-        "Real-time notifications via WebSocket",
-        "Role-based access control",
-        "Comprehensive API documentation",
-        "Rate limiting and security headers",
-        "Automated testing and CI/CD"
+        "Entrepreneur-investor matching system",
+        "Secure crowdfunding infrastructure",
+        "Project vetting and verification",
+        "Real-time funding progress tracking",
+        "Investor dashboard and analytics",
+        "Cross-border payment processing"
       ]
     }
   ]

@@ -14,19 +14,19 @@ const Projects = () => {
       year: "2025"
     },
     {
+      title: "Ofele Nonprofit",
+      description: "Community management platform serving 12+ users",
+      icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6" />,
+      color: "from-green-500 to-teal-600",
+      year: "2025"
+    },
+    {
       title: "Ritt.ai",
       description: "AI-powered drive-thru assistant with 99.5% accuracy",
       icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-blue-500 to-purple-600",
       year: "2025"
     },
-    {
-      title: "Ofele Nonprofit",
-      description: "Community management platform serving 12+ users",
-      icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6" />,
-      color: "from-green-500 to-teal-600",
-      year: "2025"
-    }
   ]
 
   return (

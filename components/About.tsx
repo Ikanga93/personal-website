@@ -191,13 +191,31 @@ const About = () => {
               viewport={{ once: true }}
               className="mt-8"
             >
-              <button 
+              <motion.button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-primary group"
+                className="btn-primary group relative overflow-hidden"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.4), 0 10px 10px -5px rgba(59, 130, 246, 0.04)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                View My Work
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                />
+                <span className="relative z-10 flex items-center gap-2">
+                  View My Work
+                  <motion.div
+                    className="group-hover:translate-x-1 transition-transform"
+                    whileHover={{ rotate: -45 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <ArrowRight size={20} />
+                  </motion.div>
+                </span>
+              </motion.button>
             </motion.div>
           </motion.div>
 
