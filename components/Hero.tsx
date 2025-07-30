@@ -30,22 +30,34 @@ const useTypewriter = (text: string, speed: number = 100) => {
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0)
   const [photoOpacity, setPhotoOpacity] = useState(1)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const { displayText: typedName, isComplete } = useTypewriter('Gilchrist Ekuke', 120)
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setScrollY(currentScrollY)
-      
-      // Fade out the photo as user scrolls down (starts fading at 200px, fully hidden at 400px)
-      const fadeStart = 200
+      setScrollY(window.scrollY)
+      // Fade out photo as user scrolls down
+      const fadeStart = 100
       const fadeEnd = 400
-      const opacity = Math.max(0, Math.min(1, 1 - (currentScrollY - fadeStart) / (fadeEnd - fadeStart)))
+      const opacity = Math.max(0, Math.min(1, 1 - (window.scrollY - fadeStart) / (fadeEnd - fadeStart)))
       setPhotoOpacity(opacity)
     }
-    
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      setMousePosition({
+        x: (clientX / innerWidth - 0.5) * 20, // -10 to 10
+        y: (clientY / innerHeight - 0.5) * 20  // -10 to 10
+      })
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   const scrollToSection = (sectionId: string) => {
@@ -129,27 +141,123 @@ const Hero = () => {
           {/* Right Content - Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            animate={{ 
+              opacity: 1, 
+              x: 0,
+              y: [0, -10, 0] // Floating animation
+            }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.2,
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
             className="relative order-1 lg:order-2"
-            style={{ opacity: photoOpacity }}
+            style={{ 
+              opacity: photoOpacity,
+              transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
+            }}
           >
             <div className="relative w-64 sm:w-80 md:w-96 lg:w-full max-w-sm mx-auto mt-8 sm:mt-12 md:mt-16 lg:mt-0">
-              <div className="aspect-square relative overflow-hidden rounded-full bg-gradient-to-br from-primary-100 to-primary-200 shadow-2xl">
-                <Image
-                  src="/assets/gieprofile.jpeg"
-                  alt="Gilchrist Ekuke - Full-Stack Developer"
-                  fill
-                  className="object-cover object-center"
-                  style={{ objectPosition: 'center 20%' }}
-                  priority
-                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 50vw"
+              <motion.div 
+                className="aspect-square relative overflow-hidden rounded-full bg-gradient-to-br from-primary-100 to-primary-200 shadow-2xl cursor-pointer group"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: 2,
+                  boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.1)"
+                }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {/* Glowing border effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-30 blur-sm"
+                  initial={false}
+                  animate={{
+                    rotate: [0, 360]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
                 />
-              </div>
+                <div className="relative z-10 aspect-square overflow-hidden rounded-full bg-gradient-to-br from-primary-100 to-primary-200">
+                  <Image
+                    src="/assets/gieprofile.jpeg"
+                    alt="Gilchrist Ekuke - Full-Stack Developer"
+                    fill
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    style={{ objectPosition: 'center 20%' }}
+                    priority
+                    sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 50vw"
+                  />
+                </div>
+              </motion.div>
               
-              {/* Decorative elements */}
-              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-primary-500/10 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-20 sm:w-32 h-20 sm:h-32 bg-gray-300/20 rounded-full blur-xl"></div>
+              {/* Interactive Decorative elements */}
+              <motion.div 
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-primary-500/10 rounded-full blur-xl"
+                animate={{
+                  x: mousePosition.x * 0.3,
+                  y: mousePosition.y * 0.3,
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
+              />
+              <motion.div 
+                className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-20 sm:w-32 h-20 sm:h-32 bg-gray-300/20 rounded-full blur-xl"
+                animate={{
+                  x: mousePosition.x * -0.2,
+                  y: mousePosition.y * -0.2,
+                  scale: [1, 0.8, 1]
+                }}
+                transition={{
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
+              />
+              
+              {/* Additional floating particles */}
+              <motion.div
+                className="absolute top-1/4 -left-8 w-3 h-3 bg-blue-400/30 rounded-full"
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 0.8, 0.3],
+                  x: mousePosition.x * 0.1
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <motion.div
+                className="absolute bottom-1/3 -right-6 w-2 h-2 bg-purple-400/40 rounded-full"
+                animate={{
+                  y: [0, 15, 0],
+                  opacity: [0.4, 0.9, 0.4],
+                  x: mousePosition.x * -0.15
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              />
             </div>
           </motion.div>
         </div>
