@@ -192,7 +192,7 @@ const About = () => {
               className="mt-8"
             >
               <motion.button
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('projectsdetails')?.scrollIntoView({ behavior: 'smooth' })}
                 className="btn-primary group relative overflow-hidden"
                 whileHover={{ 
                   scale: 1.05,

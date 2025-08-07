@@ -251,7 +251,7 @@ const ProjectsDetailed = () => {
   ]
 
   return (
-    <section className="section-padding bg-white">
+    <section id="projectsdetails" className="section-padding bg-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

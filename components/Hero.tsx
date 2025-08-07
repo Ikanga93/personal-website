@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight, Download, FileText } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
@@ -104,7 +104,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0 justify-center lg:justify-start">
               <motion.button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => window.location.href = '/projects'}
                 className="btn-primary group justify-center w-full sm:w-auto relative overflow-hidden"
                 whileHover={{ 
                   scale: 1.05,
@@ -129,6 +129,25 @@ const Hero = () => {
                 </span>
               </motion.button>
               
+              <motion.button
+                onClick={() => window.location.href = '/resume'}
+                className="btn-secondary group justify-center w-full sm:w-auto relative overflow-hidden"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(107, 114, 128, 0.4), 0 10px 10px -5px rgba(107, 114, 128, 0.04)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                />
+                <span className="relative z-10 flex items-center gap-2">
+                  <FileText size={20} />
+                  Resume
+                </span>
+              </motion.button>
 
             </div>
 

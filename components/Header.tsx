@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Home, User, Code, FolderOpen, Mail, Menu, X } from 'lucide-react'
+import { Home, User, Code, FolderOpen, Mail, Menu, X, FileText } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -44,6 +44,7 @@ const Header = () => {
     { href: '/about', label: 'About', icon: User },
     { href: '/skills', label: 'Skills', icon: Code },
     { href: '/projects', label: 'Projects', icon: FolderOpen },
+    { href: '/resume', label: 'Resume', icon: FileText },
     { href: '/contact', label: 'Contact', icon: Mail },
   ]
 
