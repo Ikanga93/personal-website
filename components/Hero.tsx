@@ -93,14 +93,9 @@ const Hero = () => {
               />
             </h1>
             
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-4 sm:mb-6">
-              AI-First Product Engineer
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0">
+              Founder-minded Product Manager building user-driven solutions that turn real-world problems into impactful products.
             </h2>
-            
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0">
-              I build functional products people actually use by leveraging AI tools for rapid iteration.
-              From customer interviews to working prototypes—I turn ambiguous problems into scalable solutions.
-            </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 sm:px-0 justify-center lg:justify-start">
               <motion.button
@@ -129,7 +124,8 @@ const Hero = () => {
                 </span>
               </motion.button>
               
-              <motion.button
+              {/* Resume button hidden */}
+              {/* <motion.button
                 onClick={() => window.location.href = '/resume'}
                 className="btn-secondary group justify-center w-full sm:w-auto relative overflow-hidden"
                 whileHover={{ 
@@ -147,7 +143,7 @@ const Hero = () => {
                   <FileText size={20} />
                   Resume
                 </span>
-              </motion.button>
+              </motion.button> */}
 
             </div>
 

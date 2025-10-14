@@ -5,8 +5,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About Me - Gilchrist Ekuke',
-  description: 'Learn more about Gilchrist Ekuke, an AI-first product engineer who builds functional products using intelligent AI collaboration and rapid iteration.',
-  keywords: 'about Gilchrist Ekuke, AI-first product engineer, vibe coder, AI-assisted development, product engineering, rapid prototyping',
+  description: 'Learn more about Gilchrist Ekuke, a technical product manager and builder who combines product strategy with hands-on development to ship products people use.',
+  keywords: 'about Gilchrist Ekuke, technical product manager, product builder, full-stack developer, product engineering, 0-to-1 products',
 }
 
 export default function AboutPage() {

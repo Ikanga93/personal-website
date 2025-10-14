@@ -5,8 +5,8 @@ import ContactDetailed from '@/components/ContactDetailed'
 
 export const metadata: Metadata = {
   title: 'Contact Me - Gilchrist Ekuke',
-  description: 'Get in touch for your next web development project. I specialize in full-stack development, AI applications, and modern web solutions. Available for freelance and contract work.',
-  keywords: 'contact, hire developer, web development services, freelance developer, React developer, full-stack developer for hire',
+  description: 'Get in touch for product management and development work. I define product strategy and build it myself. Specializing in 0-to-1 products and technical execution.',
+  keywords: 'contact, hire product manager, technical product manager, product builder, web development services, 0-to-1 products, React developer',
 }
 
 export default function ContactPage() {

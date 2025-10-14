@@ -42,21 +42,17 @@ const AboutPreview = () => {
               </h2>
               
               <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 sm:mb-6 leading-relaxed px-2 sm:px-0">
-                An AI-first product engineer who thrives in ambiguity and ships fast with smart tooling
+                A technical product manager who builds what I define—bridging strategy and execution
               </p>
               
               <div className="flex justify-center space-x-4 sm:space-x-6 text-white/80">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold">5+</div>
-                  <div className="text-xs sm:text-sm">Years</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold">25+</div>
-                  <div className="text-xs sm:text-sm">Projects</div>
-                </div>
-                <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold">10+</div>
-                  <div className="text-xs sm:text-sm">Technologies</div>
+                  <div className="text-xs sm:text-sm">Products</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xl sm:text-2xl font-bold">500+</div>
+                  <div className="text-xs sm:text-sm">Users Reached</div>
                 </div>
               </div>
             </div>

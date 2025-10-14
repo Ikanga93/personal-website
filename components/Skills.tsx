@@ -25,40 +25,39 @@ import {
   SiRender,
   SiRailway
 } from 'react-icons/si'
-import { Database, Users, MessageSquare, BookOpen, Target, User, ArrowRight } from 'lucide-react'
+import { Database, Users, MessageSquare, BookOpen, Target, User, ArrowRight, TrendingUp, Lightbulb, FileText, BarChart3, Layers } from 'lucide-react'
 import Link from 'next/link'
 
 const Skills = () => {
   // All skills in one array for floating layout
   const allSkills = [
-    { name: "React", icon: <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB]" />, category: "frontend" },
-    { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6 sm:w-8 sm:h-8 text-black" />, category: "frontend" },
-    { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 sm:w-8 sm:h-8 text-[#3178C6]" />, category: "frontend" },
-    { name: "JavaScript", icon: <SiJavascript className="w-6 h-6 sm:w-8 sm:h-8 text-[#F7DF1E]" />, category: "frontend" },
-    { name: "HTML5", icon: <SiHtml5 className="w-6 h-6 sm:w-8 sm:h-8 text-[#E34F26]" />, category: "frontend" },
-    { name: "CSS3", icon: <SiCss3 className="w-6 h-6 sm:w-8 sm:h-8 text-[#1572B6]" />, category: "frontend" },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="w-6 h-6 sm:w-8 sm:h-8 text-[#06B6D4]" />, category: "frontend" },
-    { name: "Node.js", icon: <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933]" />, category: "backend" },
-    { name: "Express.js", icon: <SiExpress className="w-6 h-6 sm:w-8 sm:h-8 text-black" />, category: "backend" },
-    { name: "Python", icon: <SiPython className="w-6 h-6 sm:w-8 sm:h-8 text-[#3776AB]" />, category: "backend" },
-    { name: "Django", icon: <SiDjango className="w-6 h-6 sm:w-8 sm:h-8 text-[#092E20]" />, category: "backend" },
-    { name: "PostgreSQL", icon: <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#336791]" />, category: "backend" },
-    { name: "MongoDB", icon: <SiMongodb className="w-6 h-6 sm:w-8 sm:h-8 text-[#47A248]" />, category: "backend" },
-    { name: "Git", icon: <SiGit className="w-6 h-6 sm:w-8 sm:h-8 text-[#F05032]" />, category: "tools" },
-    { name: "Docker", icon: <SiDocker className="w-6 h-6 sm:w-8 sm:h-8 text-[#2496ED]" />, category: "tools" },
-    { name: "AWS", icon: <SiAmazon className="w-6 h-6 sm:w-8 sm:h-8 text-[#232F3E]" />, category: "tools" },
-    { name: "Vercel", icon: <SiVercel className="w-6 h-6 sm:w-8 sm:h-8 text-black" />, category: "tools" },
-    { name: "Render", icon: <SiRender className="w-6 h-6 sm:w-8 sm:h-8 text-[#46E3B7]" />, category: "tools" },
-    { name: "Railway", icon: <SiRailway className="w-6 h-6 sm:w-8 sm:h-8 text-[#0B0D0E]" />, category: "tools" },
-    { name: "Vite", icon: <SiVite className="w-6 h-6 sm:w-8 sm:h-8 text-[#646CFF]" />, category: "tools" },
-    { name: "Figma", icon: <SiFigma className="w-6 h-6 sm:w-8 sm:h-8 text-[#F24E1E]" />, category: "tools" },
-    { name: "Supabase", icon: <SiSupabase className="w-6 h-6 sm:w-8 sm:h-8 text-[#3ECF8E]" />, category: "tools" },
-    { name: "Problem Solving", icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" },
-    { name: "Team Collaboration", icon: <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" },
-    { name: "Technical Writing", icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" },
-    { name: "Client Communication", icon: <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" },
-    { name: "Project Management", icon: <Database className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" },
-    { name: "Mentoring", icon: <User className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "soft" }
+    // Product Management Skills
+    { name: "Product Strategy", icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "User Research", icon: <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Roadmapping", icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Stakeholder Mgmt", icon: <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Product Analytics", icon: <Database className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "A/B Testing", icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Agile/Scrum", icon: <User className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Go-to-Market", icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "UX Design", icon: <SiFigma className="w-6 h-6 sm:w-8 sm:h-8 text-[#F24E1E]" />, category: "pm" },
+    { name: "Figma", icon: <SiFigma className="w-6 h-6 sm:w-8 sm:h-8 text-[#F24E1E]" />, category: "pm" },
+    { name: "OKRs & KPIs", icon: <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "PRDs & Specs", icon: <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Customer Discovery", icon: <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Feature Prioritization", icon: <Layers className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Growth Strategy", icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    { name: "Product Vision", icon: <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />, category: "pm" },
+    
+    // Technical Skills (minimal)
+    { name: "React", icon: <SiReact className="w-6 h-6 sm:w-8 sm:h-8 text-[#61DAFB]" />, category: "technical" },
+    { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6 sm:w-8 sm:h-8 text-black" />, category: "technical" },
+    { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 sm:w-8 sm:h-8 text-[#3178C6]" />, category: "technical" },
+    { name: "Node.js", icon: <SiNodedotjs className="w-6 h-6 sm:w-8 sm:h-8 text-[#339933]" />, category: "technical" },
+    { name: "Python", icon: <SiPython className="w-6 h-6 sm:w-8 sm:h-8 text-[#3776AB]" />, category: "technical" },
+    { name: "PostgreSQL", icon: <SiPostgresql className="w-6 h-6 sm:w-8 sm:h-8 text-[#336791]" />, category: "technical" },
+    { name: "Git", icon: <SiGit className="w-6 h-6 sm:w-8 sm:h-8 text-[#F05032]" />, category: "technical" },
+    { name: "Vercel", icon: <SiVercel className="w-6 h-6 sm:w-8 sm:h-8 text-black" />, category: "technical" }
   ]
 
   // Generate random positions for floating effect
@@ -101,7 +100,7 @@ const Skills = () => {
             Skills & Expertise
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Technologies and tools floating in my development universe
+            Product management expertise with technical execution capabilities
           </p>
         </motion.div>
 
@@ -163,20 +162,12 @@ const Skills = () => {
           className="flex flex-wrap justify-center gap-3 sm:gap-6 mt-8 sm:mt-12 mb-6 sm:mb-8 px-4 sm:px-0"
         >
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-500 rounded-full"></div>
-            <span className="text-xs sm:text-sm text-gray-600">Frontend</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full"></div>
-            <span className="text-xs sm:text-sm text-gray-600">Backend</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 rounded-full"></div>
-            <span className="text-xs sm:text-sm text-gray-600">Tools</span>
-          </div>
-          <div className="flex items-center gap-2">
             <div className="w-3 h-3 sm:w-4 sm:h-4 bg-primary-500 rounded-full"></div>
-            <span className="text-xs sm:text-sm text-gray-600">Soft Skills</span>
+            <span className="text-xs sm:text-sm text-gray-600">Product Management</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-blue-500 rounded-full"></div>
+            <span className="text-xs sm:text-sm text-gray-600">Technical Skills</span>
           </div>
         </motion.div>
 

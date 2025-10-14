@@ -34,226 +34,170 @@ import { Database, Users, MessageSquare, BookOpen, Target, User, Code2, Server, 
 const SkillsDetailed = () => {
   const skillCategories = [
     {
-      title: "AI-Assisted Development",
+      title: "Product Management & Strategy",
       icon: <Lightbulb className="w-8 h-8" />,
       color: "from-purple-500 to-pink-600",
       skills: [
         {
-          name: "Cursor",
-          icon: <Code2 className="w-6 h-6 text-[#FF6B35]" />,
-          level: 95,
-          years: "2+",
-          description: "Expert at AI pair programming, rapid prototyping, and intelligent code generation. Use AI to accelerate development while maintaining code quality and architectural decisions."
+          name: "Product Strategy & Vision",
+          icon: <Target className="w-6 h-6 text-[#4F46E5]" />,
+          level: 92,
+          years: "3+",
+          description: "Defining product vision, roadmaps, and feature prioritization. Setting strategic direction while balancing user needs, technical feasibility, and business goals."
         },
         {
-          name: "AI-First Product Engineering",
-          icon: <Target className="w-6 h-6 text-[#4F46E5]" />,
+          name: "User Research & Discovery",
+          icon: <Users className="w-6 h-6 text-[#10B981]" />,
+          level: 95,
+          years: "3+",
+          description: "Conducting customer interviews, usability testing, and market research. Identifying pain points, validating assumptions, and turning insights into actionable product requirements."
+        },
+        {
+          name: "Product Roadmapping",
+          icon: <BookOpen className="w-6 h-6 text-[#8B5CF6]" />,
           level: 90,
           years: "3+",
-          description: "Leveraging AI tools for customer research, rapid iteration, and turning user feedback into working prototypes within hours, not days."
+          description: "Creating and maintaining product roadmaps. Prioritizing features based on impact, effort, and strategic alignment. Communicating timelines to stakeholders."
         },
         {
-          name: "Prompt Engineering",
-          icon: <MessageSquare className="w-6 h-6 text-[#10B981]" />,
+          name: "Metrics & Analytics",
+          icon: <Database className="w-6 h-6 text-[#F59E0B]" />,
+          level: 88,
+          years: "2+",
+          description: "Defining success metrics, tracking KPIs, and using data to inform product decisions. Running A/B tests and analyzing feature performance to drive iteration."
+        },
+        {
+          name: "Stakeholder Management",
+          icon: <MessageSquare className="w-6 h-6 text-[#EC4899]" />,
+          level: 90,
+          years: "3+",
+          description: "Managing expectations across engineering, design, and business teams. Communicating product decisions clearly and building consensus around priorities."
+        },
+        {
+          name: "Go-to-Market Strategy",
+          icon: <Target className="w-6 h-6 text-[#10B981]" />,
           level: 85,
           years: "2+",
-          description: "Crafting effective prompts for development tasks, code review, architecture decisions, and technical documentation generation."
-        },
-        {
-          name: "AI Tool Integration",
-          icon: <Wrench className="w-6 h-6 text-[#F59E0B]" />,
-          level: 90,
-          years: "2+",
-          description: "Integrating LLMs, voice processing, and AI APIs into production applications. Building AI-powered features that users actually use."
+          description: "Planning product launches, defining positioning, and coordinating cross-functional teams. Ensuring successful product adoption and user onboarding."
         }
       ]
     },
     {
-      title: "Frontend Development",
+      title: "Technical Execution",
       icon: <Code2 className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-600",
       skills: [
         {
-          name: "React",
-          icon: <SiReact className="w-6 h-6 text-[#61DAFB]" />,
-          level: 95,
-          years: "4+",
-          description: "Advanced component architecture, hooks, context, and performance optimization. Built 15+ production apps."
+          name: "Full-Stack Development",
+          icon: <Code2 className="w-6 h-6 text-[#61DAFB]" />,
+          level: 85,
+          years: "3+",
+          description: "Hands-on ability to build MVPs and prototypes. Proficient in modern web technologies to validate product ideas quickly and iterate based on feedback."
         },
         {
-          name: "Next.js",
-          icon: <SiNextdotjs className="w-6 h-6 text-black" />,
+          name: "Technical Architecture",
+          icon: <Server className="w-6 h-6 text-[#3178C6]" />,
+          level: 80,
+          years: "2+",
+          description: "Understanding system design and technical tradeoffs. Making informed decisions about technology choices that align with product goals and scale requirements."
+        },
+        {
+          name: "Prototyping & MVPs",
+          icon: <Wrench className="w-6 h-6 text-[#F59E0B]" />,
           level: 90,
           years: "3+",
-          description: "SSR, SSG, API routes, app router, and deployment optimization. Current framework of choice for modern web apps."
-        },
-        {
-          name: "TypeScript",
-          icon: <SiTypescript className="w-6 h-6 text-[#3178C6]" />,
-          level: 90,
-          years: "3+",
-          description: "Advanced type safety, generics, and enterprise-level TypeScript architecture for scalable applications."
-        },
-        {
-          name: "JavaScript",
-          icon: <SiJavascript className="w-6 h-6 text-[#F7DF1E]" />,
-          level: 95,
-          years: "5+",
-          description: "ES6+, async/await, closures, prototypes, and modern JavaScript patterns. Strong foundation in vanilla JS."
-        },
-        {
-          name: "Tailwind CSS",
-          icon: <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" />,
-          level: 90,
-          years: "3+",
-          description: "Utility-first CSS framework mastery, custom component design systems, and responsive layouts."
-        },
-        {
-          name: "HTML5 & CSS3",
-          icon: <SiHtml5 className="w-6 h-6 text-[#E34F26]" />,
-          level: 95,
-          years: "5+",
-          description: "Semantic HTML, CSS Grid, Flexbox, animations, and accessibility best practices."
+          description: "Rapidly building working prototypes to test hypotheses. Shipping MVPs to validate product-market fit before investing in full-scale development."
         }
       ]
     },
     {
-      title: "Backend Development",
-      icon: <Server className="w-8 h-8" />,
+      title: "Product Design & UX",
+      icon: <SiFigma className="w-8 h-8" />,
       color: "from-green-500 to-emerald-600",
       skills: [
         {
-          name: "Node.js",
-          icon: <SiNodedotjs className="w-6 h-6 text-[#339933]" />,
-          level: 90,
-          years: "4+",
-          description: "Server-side JavaScript, event-driven architecture, microservices, and RESTful API development."
-        },
-        {
-          name: "Express.js",
-          icon: <SiExpress className="w-6 h-6 text-black" />,
-          level: 85,
-          years: "4+",
-          description: "Middleware patterns, routing, authentication, error handling, and API security implementation."
-        },
-        {
-          name: "Python",
-          icon: <SiPython className="w-6 h-6 text-[#3776AB]" />,
+          name: "User Experience Design",
+          icon: <Users className="w-6 h-6 text-[#10B981]" />,
           level: 85,
           years: "3+",
-          description: "Backend development, data processing, automation scripts, and integration with various APIs."
+          description: "Designing intuitive user flows and interfaces. Creating wireframes and prototypes to communicate product vision and validate design decisions with users."
         },
         {
-          name: "Django",
-          icon: <SiDjango className="w-6 h-6 text-[#092E20]" />,
-          level: 80,
-          years: "2+",
-          description: "MVC architecture, ORM, admin interface, authentication systems, and rapid prototyping."
-        },
-        {
-          name: "PostgreSQL",
-          icon: <SiPostgresql className="w-6 h-6 text-[#336791]" />,
-          level: 85,
+          name: "Design Thinking",
+          icon: <Lightbulb className="w-6 h-6 text-[#F59E0B]" />,
+          level: 88,
           years: "3+",
-          description: "Complex queries, indexing, performance optimization, and database design for scalable applications."
-        }
-      ]
-    },
-    {
-      title: "Development Tools & DevOps",
-      icon: <Wrench className="w-8 h-8" />,
-      color: "from-purple-500 to-indigo-600",
-      skills: [
-        {
-          name: "Git & GitHub",
-          icon: <SiGit className="w-6 h-6 text-[#F05032]" />,
-          level: 90,
-          years: "5+",
-          description: "Version control mastery, branching strategies, collaborative workflows, and CI/CD pipelines."
+          description: "Applying design thinking methodologies to solve user problems. Facilitating workshops and ideation sessions to generate innovative product solutions."
         },
         {
-          name: "Docker",
-          icon: <SiDocker className="w-6 h-6 text-[#2496ED]" />,
-          level: 75,
-          years: "2+",
-          description: "Containerization, multi-stage builds, Docker Compose, and deployment optimization."
-        },
-        {
-          name: "AWS",
-          icon: <SiAmazon className="w-6 h-6 text-[#232F3E]" />,
-          level: 70,
-          years: "2+",
-          description: "EC2, S3, RDS, Lambda, and basic cloud infrastructure management for web applications."
-        },
-        {
-          name: "Vercel",
-          icon: <SiVercel className="w-6 h-6 text-black" />,
-          level: 90,
-          years: "3+",
-          description: "Deployment optimization, serverless functions, edge computing, and performance monitoring."
-        },
-        {
-          name: "Figma",
+          name: "Figma & Prototyping",
           icon: <SiFigma className="w-6 h-6 text-[#F24E1E]" />,
-          level: 80,
-          years: "3+",
-          description: "UI/UX design, prototyping, design systems, and developer handoff collaboration."
-        },
-        {
-          name: "Vite",
-          icon: <SiVite className="w-6 h-6 text-[#646CFF]" />,
-          level: 85,
+          level: 82,
           years: "2+",
-          description: "Build tool optimization, hot module replacement, and modern frontend tooling configuration."
+          description: "Creating high-fidelity mockups and interactive prototypes. Collaborating with designers and using design tools to communicate product requirements visually."
         }
       ]
     },
     {
-      title: "Soft Skills & Leadership",
-      icon: <Lightbulb className="w-8 h-8" />,
+      title: "Business & Communication",
+      icon: <MessageSquare className="w-8 h-8" />,
       color: "from-orange-500 to-red-600",
       skills: [
         {
-          name: "Problem Solving",
-          icon: <Target className="w-6 h-6 text-primary-600" />,
-          level: 95,
-          years: "5+",
-          description: "Complex debugging, algorithmic thinking, performance optimization, and creative solution design."
-        },
-        {
-          name: "Team Collaboration",
-          icon: <Users className="w-6 h-6 text-primary-600" />,
+          name: "Cross-Functional Leadership",
+          icon: <Users className="w-6 h-6 text-[#8B5CF6]" />,
           level: 90,
-          years: "5+",
-          description: "Agile methodologies, code reviews, pair programming, and cross-functional team leadership."
-        },
-        {
-          name: "Technical Writing",
-          icon: <BookOpen className="w-6 h-6 text-primary-600" />,
-          level: 85,
-          years: "4+",
-          description: "Documentation, API specifications, technical blogs, and clear code commenting practices."
-        },
-        {
-          name: "Client Communication",
-          icon: <MessageSquare className="w-6 h-6 text-primary-600" />,
-          level: 90,
-          years: "4+",
-          description: "Requirements gathering, project updates, technical explanation to non-technical stakeholders."
-        },
-        {
-          name: "Project Management",
-          icon: <Database className="w-6 h-6 text-primary-600" />,
-          level: 85,
           years: "3+",
-          description: "Timeline estimation, resource allocation, risk management, and delivery coordination."
+          description: "Leading cross-functional teams including engineering, design, and marketing. Building alignment and driving execution toward shared product goals."
         },
         {
-          name: "Mentoring",
-          icon: <User className="w-6 h-6 text-primary-600" />,
-          level: 80,
+          name: "Stakeholder Communication",
+          icon: <MessageSquare className="w-6 h-6 text-[#3B82F6]" />,
+          level: 92,
+          years: "3+",
+          description: "Communicating product vision and strategy to executives, customers, and team members. Translating technical concepts for non-technical audiences."
+        },
+        {
+          name: "Agile & Scrum",
+          icon: <Target className="w-6 h-6 text-[#10B981]" />,
+          level: 88,
+          years: "3+",
+          description: "Running agile ceremonies, managing sprints, and maintaining product backlogs. Facilitating team collaboration and continuous improvement."
+        },
+        {
+          name: "Business Strategy",
+          icon: <Lightbulb className="w-6 h-6 text-[#F59E0B]" />,
+          level: 85,
           years: "2+",
-          description: "Junior developer guidance, code review processes, and knowledge transfer methodologies."
+          description: "Understanding business models, revenue strategies, and market dynamics. Aligning product decisions with company objectives and competitive positioning."
+        }
+      ]
+    },
+    {
+      title: "Data & Analytics",
+      icon: <Database className="w-8 h-8" />,
+      color: "from-indigo-500 to-purple-600",
+      skills: [
+        {
+          name: "Product Analytics",
+          icon: <Database className="w-6 h-6 text-[#6366F1]" />,
+          level: 88,
+          years: "2+",
+          description: "Setting up analytics frameworks, tracking user behavior, and measuring product success. Using tools to understand how users interact with products."
+        },
+        {
+          name: "Data-Driven Decision Making",
+          icon: <Target className="w-6 h-6 text-[#8B5CF6]" />,
+          level: 90,
+          years: "3+",
+          description: "Using quantitative and qualitative data to inform product decisions. Balancing data insights with user feedback and strategic intuition."
+        },
+        {
+          name: "Experimentation & A/B Testing",
+          icon: <Wrench className="w-6 h-6 text-[#EC4899]" />,
+          level: 85,
+          years: "2+",
+          description: "Designing and running experiments to validate hypotheses. Analyzing results and making data-informed decisions about feature rollouts."
         }
       ]
     }
@@ -353,7 +297,7 @@ const SkillsDetailed = () => {
           ))}
         </div>
 
-        {/* Additional Technologies */}
+        {/* Additional PM Tools & Methodologies */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -362,20 +306,19 @@ const SkillsDetailed = () => {
           className="mt-20 text-center"
         >
           <h3 className="text-2xl font-display font-bold text-gray-900 mb-8">
-            Additional Technologies & Tools
+            Tools & Methodologies
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              //{ name: "Redis", icon: <SiRedis className="w-5 h-5 text-[#DC382D]" /> },
-              //{ name: "GraphQL", icon: <SiGraphql className="w-5 h-5 text-[#E10098]" /> },
-              //{ name: "Jest", icon: <SiJest className="w-5 h-5 text-[#C21325]" /> },
-              //{ name: "Prisma", icon: <SiPrisma className="w-5 h-5 text-[#2D3748]" /> },
-              { name: "Supabase", icon: <SiSupabase className="w-5 h-5 text-[#3ECF8E]" /> },
-              { name: "Railway", icon: <SiRailway className="w-5 h-5 text-[#0B0D0E]" /> },
-              { name: "Render", icon: <SiRender className="w-5 h-5 text-[#46E3B7]" /> }
-            ].map((tech, index) => (
+              { name: "Figma", icon: <SiFigma className="w-5 h-5 text-[#F24E1E]" /> },
+              { name: "User Interviews", icon: <Users className="w-5 h-5 text-[#6366F1]" /> },
+              { name: "A/B Testing", icon: <Target className="w-5 h-5 text-[#10B981]" /> },
+              { name: "Agile/Scrum", icon: <Wrench className="w-5 h-5 text-[#F59E0B]" /> },
+              { name: "Prototyping", icon: <Code2 className="w-5 h-5 text-[#3B82F6]" /> },
+              { name: "Analytics", icon: <Database className="w-5 h-5 text-[#8B5CF6]" /> }
+            ].map((tool, index) => (
               <motion.div
-                key={tech.name}
+                key={tool.name}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -383,8 +326,8 @@ const SkillsDetailed = () => {
                 whileHover={{ scale: 1.1 }}
                 className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
-                {tech.icon}
-                <span className="text-sm font-medium text-gray-700">{tech.name}</span>
+                {tool.icon}
+                <span className="text-sm font-medium text-gray-700">{tool.name}</span>
               </motion.div>
             ))}
           </div>

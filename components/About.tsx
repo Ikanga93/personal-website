@@ -10,59 +10,48 @@ const About = () => {
   const developmentAreas = [
     {
       id: 'fullstack',
-      title: "AI-First Product Engineer",
+      title: "Product Management",
       icon: <Layers className="w-8 h-8" />,
       color: "from-purple-500 to-indigo-600",
       hoverColor: "group-hover:from-purple-600 group-hover:to-indigo-700",
-      description: "End-to-end product ownership from customer interviews to live, scaling solutions using AI-powered development.",
-      skills: ["Cursor", "Windsurf", "Claude Code", "Rapid Prototyping", "Customer Onboarding", "AI Tooling", "Product Intuition"],
-      experience: "2+ Years",
+      description: "End-to-end product ownership from customer discovery to launch. I define product strategy, conduct user research, and drive execution to deliver impactful solutions.",
+      skills: ["Product Strategy", "User Research", "Roadmap Planning", "Customer Discovery", "Go-to-Market", "Metrics & Analytics", "Stakeholder Management"],
+      experience: "4+ Years",
       projects: "10+ Products"
     },
     {
       id: 'frontend',
-      title: "Frontend Development",
+      title: "Technical Execution",
       icon: <Monitor className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-600",
       hoverColor: "group-hover:from-blue-600 group-hover:to-cyan-700",
-      description: "Quick feedback loops with AI pair programming to ship user-facing features that people actually use.",
-      skills: ["React/Next.js", "AI-Assisted Development", "User Feedback Integration", "Rapid Iteration", "Product Taste"],
-      experience: "2+ Years",
-      projects: "5+ Live Products"
-    },
-    {
-      id: 'backend',
-      title: "Backend Development",
-      icon: <Server className="w-8 h-8" />,
-      color: "from-green-500 to-emerald-600",
-      hoverColor: "group-hover:from-green-600 group-hover:to-emerald-700",
-      description: "Building scalable infrastructure and automating workflows to handle real-world edge cases at scale.",
-      skills: ["Node.js/Python", "Workflow Automation", "LLM Integration", "Webhooks", "Scalable Systems"],
-      experience: "2+ Years",
-      projects: "5+ Systems"
+      description: "Hands-on builder who ships features quickly. I leverage technical skills to prototype, validate ideas, and iterate based on real user feedback.",
+      skills: ["React/Next.js", "Rapid Prototyping", "User Feedback Integration", "A/B Testing", "Product Taste"],
+      experience: "4+ Years",
+      projects: "10+ Live Products"
     }
   ]
 
   const personalHighlights = [
     {
       icon: <Code className="w-6 h-6" />,
-      title: "AI-Powered Development",
-      description: "Leveraging Claude Code and smart tooling for rapid iteration"
+      title: "Technical & Strategic",
+      description: "Combining product strategy with hands-on development skills"
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Ambiguity Navigator",
-      description: "Thriving in high-ambiguity, high-agency environments"
+      title: "0-to-1 Builder",
+      description: "Thriving in ambiguous environments, defining and building products from scratch"
     },
     {
       icon: <Smartphone className="w-6 h-6" />,
       title: "Customer-Obsessed",
-      description: "From user interviews to working prototypes in record time"
+      description: "From user research to shipped features, driven by customer needs"
     },
     {
       icon: <Database className="w-6 h-6" />,
-      title: "Ship Fast, Learn Fast",
-      description: "Quick feedback loops with direct user validation"
+      title: "Data-Informed",
+      description: "Using metrics and user feedback to guide product decisions"
     }
   ]
 
@@ -80,9 +69,9 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            I'm Gilchrist Ekuke, an AI-first product engineer who turns customer problems into working solutions fast. 
-            I thrive in high-ambiguity environments, leveraging AI tools like Cursor to ship functional products 
-            that people actually use. Think like a PM, build like an engineer.
+            I'm Gilchrist Ekuke, a technical product manager who builds the products I define. 
+            I thrive in 0-to-1 environments, combining product thinking with hands-on development to ship functional products 
+            that people actually use. I think like a PM, build like an engineer.
           </p>
         </motion.div>
 
@@ -166,21 +155,21 @@ const About = () => {
             
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                My passion for technology began with curiosity about how digital experiences 
-                could solve real-world problems. This curiosity evolved into a deep expertise 
-                in both frontend aesthetics and backend architecture.
+                My journey started with a passion for solving real problems through technology. 
+                This evolved into a unique skillset that bridges product management and technical execution—I can 
+                define what to build and actually build it.
               </p>
               
               <p>
                 From AI-powered applications like <span className="font-semibold text-gray-800">Ritt.ai</span> to 
                 community-focused platforms like the <span className="font-semibold text-gray-800">Ofele Nonprofit App</span>, 
-                I've consistently delivered solutions that balance technical excellence with user-centered design.
+                I've led products from customer discovery through technical implementation and launch.
               </p>
               
               <p>
-                I believe in continuous learning, clean code practices, and building applications 
-                that not only meet requirements but exceed expectations. Every project is an 
-                opportunity to push boundaries and create lasting impact.
+                I believe in talking to users early, shipping fast, and iterating based on real feedback. 
+                Every product decision is informed by both technical constraints and user needs. 
+                This dual perspective helps me build products that are both technically sound and genuinely useful.
               </p>
             </div>
 
@@ -256,7 +245,7 @@ const About = () => {
         >
           {[
             { number: "10+", label: "Projects Completed" },
-            { number: "2+", label: "Years Experience" },
+            { number: "4", label: "Years Experience" },
           ].map((stat, index) => (
             <div key={index} className="group">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform">

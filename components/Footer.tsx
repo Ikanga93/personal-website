@@ -52,7 +52,7 @@ const Footer = () => {
   const navigationLinks = [
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Products', href: '#projects' },
     { name: 'Contact', href: '#contact' }
   ]
 
@@ -64,9 +64,9 @@ const Footer = () => {
   ]
 
   const recentProjects = [
-    { name: 'Ofele Nonprofit App', url: 'https://ofele-nonprofit-app.vercel.app/' },
-    { name: 'Ritt.ai Assistant', url: 'https://ritt-ai-assistant-frontend.onrender.com/' },
-    { name: 'Mo\'s Burrito App', url: 'https://mo-s-burrito-app-production.up.railway.app/' }
+    { name: 'Ritt', url: 'https://ritt.ai' },
+    { name: 'Ofele', url: 'https://ofele-nonprofit-app.vercel.app/' },
+    { name: 'WePyk', url: 'https://wepyk.com' }
   ]
 
   return (
@@ -95,8 +95,7 @@ const Footer = () => {
                   Gilchrist Ekuke
                 </h3>
                 <p className="text-gray-400 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0">
-                  Full-Stack Developer crafting exceptional digital experiences with modern technologies. 
-                  Transforming ideas into powerful, scalable solutions.
+                  Product Manager building solutions that solve real problems for real users.
                 </p>
                 
                 {/* Social Links */}
@@ -147,35 +146,11 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Services */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center sm:text-left"
-            >
-              <h4 className="font-semibold text-white mb-4 sm:mb-6 text-sm sm:text-base">Services</h4>
-              <ul className="space-y-2 sm:space-y-3">
-                {servicesLinks.map((service, index) => (
-                  <li key={index}>
-                    <a
-                      href={service.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center sm:justify-start gap-2 group text-sm"
-                    >
-                      <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-white transition-colors"></span>
-                      {service.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
             {/* Recent Projects */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className="text-center sm:text-left"
             >

@@ -5,8 +5,8 @@ import SkillsDetailed from '@/components/SkillsDetailed'
 
 export const metadata: Metadata = {
   title: 'Skills & Expertise - Gilchrist Ekuke',
-  description: 'Explore my technical skills and expertise in full-stack development, including frontend technologies, backend frameworks, databases, and development tools.',
-  keywords: 'skills, expertise, React, Next.js, Node.js, TypeScript, Python, Django, PostgreSQL, MongoDB, full-stack developer',
+  description: 'Product management and technical skills. From user research and product strategy to hands-on development with React, Next.js, Node.js, and modern web technologies.',
+  keywords: 'skills, expertise, product management, user research, product strategy, React, Next.js, Node.js, TypeScript, Python, technical product manager',
 }
 
 export default function SkillsPage() {

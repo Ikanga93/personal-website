@@ -132,8 +132,7 @@ const Resume = () => {
               transition={{ delay: 0.5 }}
             >
               <p className="text-lg text-gray-700 leading-relaxed">
-                A dedicated full-stack web developer with hands-on experience building user-centric web applications, 
-                many of which are currently in use by real users. Passionate about solving real-world problems through technology.
+                Founder-minded Product Manager with 4 years of experience building and leading user-focused products from concept to launch. Skilled in turning real-world problems into scalable, impactful solutions currently used by hundreds of users. A hands-on builder passionate about leveraging technology to solve customer challenges and drive business success.
               </p>
             </motion.section>
 

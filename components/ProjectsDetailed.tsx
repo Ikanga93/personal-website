@@ -1,249 +1,138 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Calendar, Users, Star, Target, TrendingUp, Zap, Heart, ShoppingCart } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Users, Star, Target, TrendingUp, Zap, Heart, ShoppingCart, Play } from 'lucide-react'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const ProjectsDetailed = () => {
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null)
   const projects = [
     {
       id: 1,
-      title: "Church Program Management System",
-      shortDescription: "Web application for church intercession department program management",
-      longDescription: "Created and deployed a web application for my church's intercession department to manage programs, schedules, events, and prayer requests. Fully adopted by all 12 department members and now integrated with broader church operations.",
-      image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Nonprofit Management",
-      tech: ["React", "Next.js", "PostgreSQL", "Tailwind CSS", "Node.js", "Express.js", "Stripe API", "Vercel"],
-      liveUrl: "https://ofele-nonprofit-app.vercel.app/",
-      githubUrl: "https://github.com/Ikanga93/ofele-nonprofit-app",
-      duration: "4 months",
-      role: "Full-Stack Developer & Community Liaison",
-      year: "2025",
-      featured: true,
-      impact: {
-        metric1: { value: "12+", label: "Active Users" },
-        metric2: { value: "100%", label: "Department Adoption" }
-      },
-      challenges: [
-        "Creating secure donation processing system",
-        "Designing intuitive user interface for diverse user base",
-        "Implementing role-based access control",
-        "Ensuring data privacy and compliance"
-      ],
-      solutions: [
-        "Integrated Stripe for PCI-compliant payment processing",
-        "User-centered design with accessibility in mind",
-        "JWT-based authentication with role management",
-        "GDPR-compliant data handling and encryption"
-      ],
-      keyFeatures: [
-        "Program and schedule management",
-        "Event planning and registration",
-        "Prayer request",
-        //"Member communication system",
-        "Financial reporting and analytics",
-        //"Email notification system"
-      ]
-    },
-    {
-      id: 2,
-      title: "AI Restaurant Order Assistant",
-      shortDescription: "AI-powered order processing assistant for late-night restaurant operations",
-      longDescription: "Built an AI-powered order processing assistant for a busy late-night restaurant. Automates order taking and payment collection, significantly boosting operational efficiency and allowing staff to focus on food prep.",
-      image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "AI/ML Application",
-      tech: ["AI", "React", "TypeScript", "Voice API", "Real-time Communication", "Chart.js", "WebSocket"],
-      liveUrl: "https://ritt-ai-assistant-frontend.onrender.com",
-      githubUrl: "https://github.com/Ikanga93/ritt-ai-assistant",
+      title: "Ritt",
+      shortDescription: "AI-powered U.S. civics test study platform",
+      longDescription: "Launched an AI-powered web application that enables citizenship applicants to efficiently study and practice for the U.S. civics test, outperforming existing solutions in engagement and user satisfaction. Drove rapid growth to 435 users and 25+ active users within the first 8 days, achieving 418% average daily user growth during launch week.",
+      image: "/assets/IMG_0951.jpg",
+      category: "AI-Powered App",
+      tech: ["React", "Next.js", "AI/ML", "TypeScript", "Tailwind CSS", "Voice Processing", "WebSocket", "Vercel"],
+      liveUrl: "https://ritt.ai",
+      githubUrl: "https://github.com/Ikanga93/ai-civics-test.git",
       duration: "3 months",
-      role: "AI-First Engineer",
+      role: "Product Manager & AI Developer",
       year: "2025",
       featured: true,
       impact: {
-        metric1: { value: "40%", label: "Efficiency Boost" },
-        metric2: { value: "24/7", label: "Operation Hours" }
+        metric1: { value: "435", label: "Total Users" },
+        metric2: { value: "418%", label: "Daily Growth" },
+        metric3: { value: "25+", label: "Active Daily Users" }
       },
       challenges: [
-        "Creating responsive voice visualization components",
-        "Implementing real-time data synchronization",
-        "Designing intuitive user experience for restaurant staff",
-        "Optimizing performance for mobile devices"
+        "Building engaging AI-powered study experience",
+        "Achieving rapid user growth and retention",
+        "Outperforming existing civics test solutions",
+        "Ensuring high user satisfaction"
       ],
       solutions: [
-        "Custom React components with Canvas API for voice waves",
-        "WebSocket integration for real-time updates",
-        "Progressive Web App features for mobile optimization",
-        "Comprehensive user testing and iteration"
+        "AI-powered adaptive learning system",
+        "User-centered design with immediate feedback",
+        "Gamification and progress tracking",
+        "Continuous iteration based on user feedback"
       ],
       keyFeatures: [
-        "Automated order taking",
-        "Payment processing integration",
-        "Real-time order management",
-        "Staff efficiency optimization",
-        "Voice recognition technology",
+        "AI-powered civics test practice",
+        "Interactive study sessions",
+        "Progress tracking and analytics",
+        "Voice-activated testing",
+        "Real-time feedback",
         "Mobile-responsive design"
       ]
     },
     {
-      id: 3,
-      title: "Online Food Ordering System",
-      shortDescription: "Custom food ordering web app reducing third-party platform reliance",
-      longDescription: "Designed a custom food ordering web app for a local restaurant, reducing reliance on third-party platforms and increasing direct sales. Currently in final negotiation for a $3,500 sale.",
-      image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Restaurant Application",
-      tech: ["React", "Node.js", "Railway", "Express.js", "Socket.io", "Stripe", "JWT"],
-      liveUrl: "https://mo-s-burrito-app-production.up.railway.app/",
-      githubUrl: "https://github.com/Ikanga93/mo-s-burrito-app",
-      duration: "2 months",
-      role: "Full-Stack Developer & Restaurant Consultant",
+      id: 2,
+      title: "Ofele",
+      shortDescription: "Church department management platform",
+      longDescription: "Identified an operational gap in my church department and built a management web app for programs, schedules, events, and electronic prayer requests. Achieved full adoption across all 12 department members, with plans underway to expand usage to the broader church community to streamline prayer request submissions.",
+      image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=500&fit=crop&auto=format&q=80",
+      category: "Nonprofit Management",
+      tech: ["React", "Next.js", "PostgreSQL", "Tailwind CSS", "Node.js", "Express.js", "Vercel"],
+      liveUrl: "https://ofele-nonprofit-app.vercel.app/",
+      githubUrl: "https://github.com/Ikanga93/ofele-nonprofit-app.git",
+      duration: "4 months",
+      role: "Product Manager & Full-Stack Developer",
       year: "2025",
       featured: true,
       impact: {
-        metric1: { value: "$3.5K", label: "Contract Value" },
-        metric2: { value: "100%", label: "Direct Sales" }
+        metric1: { value: "12", label: "Active Members" },
+        metric2: { value: "100%", label: "Team Adoption" },
+        metric3: { value: "Church-wide", label: "Expansion Plans" }
       },
       challenges: [
-        "Implementing real-time order tracking",
-        "Creating dynamic menu management system",
-        "Handling concurrent order processing",
-        "Building responsive mobile-first design"
+        "Identifying operational gaps in church operations",
+        "Building intuitive management system",
+        "Achieving full team adoption",
+        "Planning scalable expansion"
       ],
       solutions: [
-        "Socket.io for real-time order status updates",
-        "Dynamic React forms for menu customization",
-        "MongoDB transactions for data consistency",
-        "Mobile-first CSS approach with breakpoints"
+        "User research and stakeholder interviews",
+        "Iterative design with user feedback",
+        "Training and onboarding support",
+        "Modular architecture for expansion"
       ],
       keyFeatures: [
-        "Real-time order tracking",
-        "Dynamic menu management",
+        "Program and schedule management",
+        "Event planning and coordination",
+        "Electronic prayer request system",
+        "Member communication tools",
+        "Analytics and reporting",
+        "Role-based access control"
+      ]
+    },
+    {
+      id: 3,
+      title: "WePyk",
+      shortDescription: "Schedule-based rideshare platform for commuters",
+      longDescription: "Led an offshore team of eight engineers to develop an innovative, schedule-based rideshare platform, informed by over 1,000 user interviews. Achieved hundreds of sign-ups and sustained four paying customers for several months, helping commuters save on rideshare costs.",
+      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop&auto=format&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=IiUIXPYUs8o",
+      category: "Rideshare Platform",
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Google Maps API", "Stripe", "Socket.io"],
+      liveUrl: "https://wepyk.com",
+      githubUrl: "https://github.com/Ikanga93/wepyk",
+      duration: "8 months",
+      role: "Product Manager & Team Lead",
+      year: "2022",
+      featured: true,
+      impact: {
+        metric1: { value: "1,000+", label: "User Interviews" },
+        metric2: { value: "300+", label: "Sign-ups" },
+        metric3: { value: "4", label: "Paying Customers" }
+      },
+      challenges: [
+        "Leading offshore team of 8 engineers",
+        "Conducting extensive user research",
+        "Building innovative scheduling system",
+        "Achieving product-market fit"
+      ],
+      solutions: [
+        "Agile development with daily standups",
+        "1,000+ user interviews for validation",
+        "Schedule-based matching algorithm",
+        "Iterative MVP approach"
+      ],
+      keyFeatures: [
+        "Schedule-based ride matching",
+        "Cost savings calculator",
+        "Real-time ride tracking",
         "Secure payment processing",
-        "Customer order history",
-        "Admin dashboard",
-        "Third-party platform independence"
-      ]
-    },
-    {
-      id: 4,
-      title: "AI Citizenship Test Assistant",
-      shortDescription: "Voice-activated AI web app for U.S. citizenship civics test practice",
-      longDescription: "Developing a voice-activated AI web app to simulate the U.S. citizenship civics test in real time, providing an interactive way to practice and improve test readiness.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "AI/ML Application",
-      tech: ["Python", "React", "Next.js", "AI/ML", "Voice Processing", "Node.js", "TypeScript", "WebSocket", "Cloud APIs"],
-      liveUrl: "",
-      githubUrl: "https://github.com/gilchristekuke",
-      duration: "In Development",
-      role: "Full-Stack Developer & AI Developer",
-      year: "2025",
-      featured: false,
-      impact: {
-        metric1: { value: "Real-time", label: "Test Simulation" },
-        metric2: { value: "Voice", label: "Interactive Mode" }
-      },
-      challenges: [
-        "Implementing real-time voice processing",
-        "Creating accurate test simulation",
-        "Designing intuitive user experience",
-        "Ensuring accessibility compliance"
-      ],
-      solutions: [
-        "Advanced voice recognition API integration",
-        "Comprehensive civics test database",
-        "User-centered design approach",
-        "WCAG accessibility standards implementation"
-      ],
-      keyFeatures: [
-        "Voice-activated test simulation",
-        "Real-time feedback and scoring",
-        "Interactive practice sessions",
-        "Progress tracking and analytics",
-        "Accessibility-first design",
-        "Mobile-responsive interface"
-      ]
-    },
-    {
-      id: 5,
-      title: "Diaspora Project Management Platform",
-      shortDescription: "Platform for African diaspora to manage projects back home with verified inspectors",
-      longDescription: "Building a platform for African diaspora to manage projects back home through connections with verified local inspectors—aimed at reducing fraud, fostering accountability, and increasing transparency in cross-border project execution.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Project Management",
-      tech: ["Python", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "PostgreSQL", "Stripe"],
-      liveUrl: "",
-      githubUrl: "https://github.com/Ikanga93/pofara-trustees-web-app",
-      duration: "In Development",
-      role: "Full-Stack Developer & Product Manager",
-      year: "2025",
-      featured: false,
-      impact: {
-        metric1: { value: "Fraud", label: "Reduction Focus" },
-        metric2: { value: "Cross-border", label: "Project Management" }
-      },
-      challenges: [
-        "Building trust in cross-border transactions",
-        "Verifying local inspector credentials",
-        "Creating transparent project tracking",
-        "Implementing secure payment systems"
-      ],
-      solutions: [
-        "Multi-tier verification system for inspectors",
-        "Blockchain-based transparency features",
-        "Real-time project monitoring dashboard",
-        "Escrow-based payment protection"
-      ],
-      keyFeatures: [
-        "Verified inspector network",
-        "Real-time project monitoring",
-        "Secure payment processing",
-        "Transparency and accountability tools",
-        "Cross-border communication platform",
-        "Fraud prevention measures"
-      ]
-    },
-    {
-      id: 6,
-      title: "Crowdfunding Platform for African Entrepreneurs",
-      shortDescription: "Purpose-driven crowdfunding platform connecting African entrepreneurs with diaspora investors",
-      longDescription: "Developed a purpose-driven crowdfunding platform connecting African entrepreneurs with diaspora investors. Several funding requests are already in progress, focused on empowering grassroots innovation in Africa.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
-      category: "Fintech Platform",
-      tech: ["Python", "PostgreSQL", "JWT", "Stripe", "React", "JavaScript", "HTML", "CSS"],
-      liveUrl: "",
-      githubUrl: "https://github.com/Ikanga93/diaspora_invest",
-      duration: "6 months",
-      role: "Full-Stack Developer & Platform Architect",
-      year: "2025",
-      featured: false,
-      impact: {
-        metric1: { value: "Active", label: "Funding Requests" },
-        metric2: { value: "Diaspora", label: "Investor Network" }
-      },
-      challenges: [
-        "Building trust between investors and entrepreneurs",
-        "Implementing secure payment processing",
-        "Creating comprehensive project vetting",
-        "Ensuring regulatory compliance"
-      ],
-      solutions: [
-        "Multi-stage project verification process",
-        "Integrated Stripe for secure transactions",
-        "AI-powered project assessment tools",
-        "Compliance framework for multiple jurisdictions"
-      ],
-      keyFeatures: [
-        "Entrepreneur-investor matching system",
-        "Secure crowdfunding infrastructure",
-        "Project vetting and verification",
-        "Real-time funding progress tracking",
-        "Investor dashboard and analytics",
-        "Cross-border payment processing"
+        "Driver and rider profiles",
+        "Route optimization"
       ]
     }
   ]
 
   const categories = [
-    { name: "All Projects", filter: "all", icon: <Target className="w-5 h-5" /> },
+    { name: "All Products", filter: "all", icon: <Target className="w-5 h-5" /> },
     { name: "AI/ML", filter: "AI/ML Application", icon: <Zap className="w-5 h-5" /> },
     { name: "Full-Stack", filter: "Restaurant Application", icon: <ShoppingCart className="w-5 h-5" /> },
     { name: "Frontend", filter: "Frontend Application", icon: <Star className="w-5 h-5" /> },
@@ -261,11 +150,11 @@ const ProjectsDetailed = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-display font-bold text-gradient mb-6">
-            Project Portfolio
+            Product Portfolio
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             A comprehensive showcase of full-stack applications, AI-powered solutions, and innovative web platforms. 
-            Each project represents real-world impact and technical excellence.
+            Each product represents real-world impact and technical excellence.
           </p>
         </motion.div>
 
@@ -278,7 +167,7 @@ const ProjectsDetailed = () => {
             viewport={{ once: true }}
             className="text-3xl font-display font-bold text-gray-900 mb-12 text-center"
           >
-            Featured Projects
+            Featured Products
           </motion.h2>
 
           <div className="space-y-20">
@@ -291,16 +180,39 @@ const ProjectsDetailed = () => {
                 viewport={{ once: true }}
                 className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
               >
-                {/* Project Image */}
+                {/* Project Image/Video */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="relative group">
                     <div className="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {project.videoUrl && playingVideo === project.id ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${project.videoUrl.split('v=')[1]}?autoplay=1`}
+                          title={project.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                        />
+                      ) : (
+                        <>
+                          <img
+                            src={project.videoUrl ? `https://img.youtube.com/vi/${project.videoUrl.split('v=')[1]}/maxresdefault.jpg` : project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          {project.videoUrl && (
+                            <button
+                              onClick={() => setPlayingVideo(project.id)}
+                              className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all duration-300"
+                              aria-label="Play video"
+                            >
+                              <div className="bg-white/90 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+                                <Play className="w-12 h-12 text-primary-600 fill-primary-600" />
+                              </div>
+                            </button>
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        </>
+                      )}
                     </div>
                     <div className="absolute -top-4 -right-4 bg-primary-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                       {project.year}
@@ -384,7 +296,7 @@ const ProjectsDetailed = () => {
             viewport={{ once: true }}
             className="text-3xl font-display font-bold text-gray-900 mb-12 text-center"
           >
-            All Projects
+            All Products
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

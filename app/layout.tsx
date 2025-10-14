@@ -9,13 +9,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: 'Gilchrist Ekuke - Full-Stack Developer',
-  description: 'Full-stack web developer specializing in modern web technologies. Building exceptional digital experiences.',
-  keywords: 'full-stack developer, web developer, React, Node.js, TypeScript, Next.js, Gilchrist Ekuke',
+  title: 'Gilchrist Ekuke - Technical Product Manager & Builder',
+  description: 'Technical product manager who builds the products I define. Combining product strategy with hands-on development to ship products people use.',
+  keywords: 'technical product manager, product builder, full-stack developer, product engineering, 0-to-1 products, React, Node.js, TypeScript, Next.js, Gilchrist Ekuke',
   authors: [{ name: 'Gilchrist Ekuke' }],
   openGraph: {
-    title: 'Gilchrist Ekuke - Full-Stack Developer',
-    description: 'Full-stack web developer specializing in modern web technologies.',
+    title: 'Gilchrist Ekuke - Technical Product Manager & Builder',
+    description: 'Technical product manager who builds the products I define. Combining product strategy with hands-on development.',
     type: 'website',
   },
 }

@@ -1,31 +1,31 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, ArrowRight, Zap, Heart, Code2 } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, Zap, Heart, Code2, Users } from 'lucide-react'
 import Link from 'next/link'
 
 const Projects = () => {
   const featuredProjects = [
     {
-      title: "AI-Powered Food Order Taker",
-      description: "Real-time voice ordering interface",
-      icon: <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />,
-      color: "from-orange-500 to-red-600",
+      title: "Ritt",
+      description: "AI-powered civics test app with 435 users and 418% daily growth in first week",
+      icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
+      color: "from-blue-500 to-purple-600",
       year: "2025"
     },
     {
-      title: "Ofele Nonprofit",
-      description: "Community management platform serving 12+ users",
+      title: "Ofele",
+      description: "Church management platform with 100% adoption across 12 department members",
       icon: <Heart className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-green-500 to-teal-600",
       year: "2025"
     },
     {
-      title: "Ritt.ai",
-      description: "AI-powered drive-thru assistant with 99.5% accuracy",
-      icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
-      color: "from-blue-500 to-purple-600",
-      year: "2025"
+      title: "WePyk",
+      description: "Schedule-based rideshare platform built with offshore team, validated by 1,000+ interviews",
+      icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
+      color: "from-orange-500 to-red-600",
+      year: "2022"
     },
   ]
 
@@ -40,10 +40,10 @@ const Projects = () => {
           className="text-center mb-12 sm:mb-16 px-4 sm:px-0"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gradient mb-4 sm:mb-6">
-            Featured Projects
+            Featured Products
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Functional products people actually use, built with AI-first development and rapid iteration
+            Functional products people actually use, built from customer discovery to technical execution
           </p>
         </motion.div>
 
@@ -99,10 +99,9 @@ const Projects = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 text-center px-4 sm:px-0"
         >
           {[
-            { number: "6+", label: "Projects Built" },
-            { number: "99.5%", label: "AI Accuracy" },
-            { number: "12+", label: "Active Users" },
-            // { number: "100%", label: "Client Success" }
+            { number: "435+", label: "Total Users" },
+            { number: "1,000+", label: "User Interviews" },
+            { number: "100%", label: "Team Adoption" },
           ].map((stat, index) => (
             <div key={index} className="group">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform">
@@ -125,7 +124,7 @@ const Projects = () => {
             href="/projects"
             className="inline-flex items-center space-x-3 btn-primary group text-base sm:text-lg w-full sm:w-auto justify-center"
           >
-            <span>Explore All Projects</span>
+            <span>Explore All Products</span>
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
