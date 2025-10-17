@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Calendar, Users, Star, Target, TrendingUp, Zap, Heart, ShoppingCart, Play } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Users, Star, Target, TrendingUp, Zap, Heart, ShoppingCart, Play, BarChart3 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -261,10 +261,19 @@ const ProjectsDetailed = () => {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 flex-wrap">
+                    {project.id === 1 && (
+                      <Link
+                        href="/projects/ritt"
+                        className="btn-primary"
+                      >
+                        <BarChart3 size={20} />
+                        View Analytics
+                      </Link>
+                    )}
                     <a
                       href={project.liveUrl}
-                      className="btn-primary"
+                      className={project.id === 1 ? "btn-secondary" : "btn-primary"}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -363,7 +372,16 @@ const ProjectsDetailed = () => {
                     )}
                   </div>
                   
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 flex-wrap">
+                    {project.id === 1 && (
+                      <Link
+                        href="/projects/ritt"
+                        className="flex items-center space-x-1 text-primary-600 hover:text-primary-700 transition-colors text-sm font-medium"
+                      >
+                        <BarChart3 size={14} />
+                        <span>Analytics</span>
+                      </Link>
+                    )}
                     <a
                       href={project.liveUrl}
                       className="flex items-center space-x-1 text-primary-600 hover:text-primary-700 transition-colors text-sm font-medium"
