@@ -8,7 +8,7 @@ const Projects = () => {
   const featuredProjects = [
     {
       title: "Ritt",
-      description: "AI-powered civics test app with 435 users and 418% daily growth in first week",
+      description: "AI-powered civics test app with 481 users and 20% daily growth in first week",
       icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-blue-500 to-purple-600",
       year: "2025"
@@ -99,7 +99,7 @@ const Projects = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 text-center px-4 sm:px-0"
         >
           {[
-            { number: "435+", label: "Total Users" },
+            { number: "481+", label: "Total Users" },
             { number: "1,000+", label: "User Interviews" },
             { number: "100%", label: "Team Adoption" },
           ].map((stat, index) => (

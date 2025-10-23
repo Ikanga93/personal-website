@@ -44,7 +44,7 @@ const Header = () => {
     { href: '/about', label: 'About', icon: User },
     { href: '/skills', label: 'Skills', icon: Code },
     { href: '/projects', label: 'Products', icon: FolderOpen },
-    // { href: '/resume', label: 'Resume', icon: FileText },
+    { href: '/resume', label: 'Resume', icon: FileText },
     { href: '/contact', label: 'Contact', icon: Mail },
   ]
 
