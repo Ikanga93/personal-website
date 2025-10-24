@@ -111,7 +111,7 @@ const RittProjectPage = () => {
               transition={{ duration: 2, repeat: Infinity }}
             >
               <BarChart3 className="w-4 h-4 inline mr-2" />
-              Daily Signups
+              Weekly Signups
             </motion.button>
           </div>
 
@@ -168,9 +168,9 @@ const RittProjectPage = () => {
               <Activity className="w-8 h-8 text-purple-600" />
               <TrendingUp className="w-5 h-5 text-green-500" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-1">{data.avgDailyGrowth}%</div>
-            <div className="text-sm text-gray-600">Avg Daily Growth</div>
-            <div className="mt-2 text-xs text-purple-600 font-medium">Peak Period (Oct 5-9)</div>
+            <div className="text-3xl font-bold text-gray-900 mb-1">{data.peakWeeklyGrowth.toFixed(0)}%</div>
+            <div className="text-sm text-gray-600">Peak Weekly Growth</div>
+            <div className="mt-2 text-xs text-purple-600 font-medium">Week of Oct 6</div>
           </motion.div>
 
           <motion.div 
@@ -237,7 +237,7 @@ const RittProjectPage = () => {
               <div className="text-3xl font-bold text-green-900 mb-1">{data.retentionRate}</div>
               <div className="text-sm text-green-700">daily active rate</div>
               <div className="mt-3 pt-3 border-t border-green-200">
-                <div className="text-xs text-green-600 font-medium">25+ users return daily</div>
+                <div className="text-xs text-green-600 font-medium">7+ users return daily on average</div>
               </div>
             </motion.div>
 
@@ -253,29 +253,6 @@ const RittProjectPage = () => {
                 <div className="text-xs text-purple-600 font-medium">Over {data.daysSinceLaunch} days</div>
               </div>
             </motion.div>
-          </div>
-
-          {/* Weekly Breakdown */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Weekly Breakdown</h3>
-            <div className="space-y-4">
-              {data.weeklyData.map((week, index) => (
-                <motion.div 
-                  key={index}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                  whileHover={{ x: 5 }}
-                >
-                  <div>
-                    <div className="font-bold text-gray-900">{week.week}</div>
-                    <div className="text-sm text-gray-600">{week.days} days tracked</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-primary-600">{week.signups}</div>
-                    <div className="text-sm text-gray-600">new signups</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
 
           {/* Growth Milestones */}

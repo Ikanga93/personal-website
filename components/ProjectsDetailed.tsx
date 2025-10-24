@@ -24,7 +24,7 @@ const ProjectsDetailed = () => {
       featured: true,
       impact: {
         metric1: { value: "481", label: "Total Users" },
-        metric2: { value: "20%", label: "Daily Growth" },
+        metric2: { value: "1240%", label: "Weekly Growth" },
         metric3: { value: "25+", label: "Active Daily Users" }
       },
       challenges: [

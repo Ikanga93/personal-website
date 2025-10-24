@@ -8,7 +8,7 @@ const Projects = () => {
   const featuredProjects = [
     {
       title: "Ritt",
-      description: "AI-powered civics test app with 481 users and 20% daily growth in first week",
+      description: "AI-powered civics test app with 482 users and 1239% average weekly growth",
       icon: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
       color: "from-blue-500 to-purple-600",
       year: "2025"

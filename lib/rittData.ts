@@ -49,16 +49,29 @@ export const processUserData = () => {
     return sum + ((d.users - prev) / prev) * 100
   }, 0) / (peakPeriod.length - 1)
 
-  // Calculate week-over-week growth
+  // Calculate week-over-week growth (from CSV data)
+  // CSV shows weekly data starting from Aug 11, 2025
   const weeklyData = [
-    { week: 'Week 1 (Oct 5-11)', signups: 284, days: 7 },
-    { week: 'Week 2 (Oct 12-18)', signups: 96, days: 5 }
+    { week: 'Week of Aug 11', signups: 1, days: 7, growth: null },
+    { week: 'Week of Aug 18', signups: 8, days: 7, growth: 700.00 },
+    { week: 'Week of Sep 22', signups: 1, days: 7, growth: -87.50 },
+    { week: 'Week of Sep 29', signups: 67, days: 7, growth: 6600.00 },
+    { week: 'Week of Oct 6', signups: 329, days: 7, growth: 391.04 },
+    { week: 'Week of Oct 13', signups: 68, days: 7, growth: -79.33 },
+    { week: 'Week of Oct 20', signups: 8, days: 7, growth: -88.24 }
   ]
 
+  // Calculate average weekly growth (excluding null values)
+  const validGrowthRates = weeklyData.filter(w => w.growth !== null).map(w => w.growth!)
+  const avgWeeklyGrowth = validGrowthRates.reduce((sum, rate) => sum + rate, 0) / validGrowthRates.length
+
+  // Calculate peak weekly growth from CSV data
+  const peakWeeklyGrowth = 6600.00 // Week of Sep 29 had 6600% WoW growth
+  const totalUsers = weeklyData.reduce((sum, week) => sum + week.signups, 0) // Sum all weekly signups
+
   // Calculate retention indicators
-  const launchWeekUsers = 284
-  const totalUsers = 471
-  const postLaunchUsers = totalUsers - launchWeekUsers
+  const launchWeekUsers = 329 // Week of Oct 6 (main launch week)
+  const postLaunchUsers = 68 + 8 // Weeks after Oct 6
 
   // Time-based insights
   const daysSinceLaunch = 13 // Oct 5 to Oct 17
@@ -69,11 +82,13 @@ export const processUserData = () => {
   const secondWeekAvg = Math.round(96 / 5)
 
   return {
-    totalUsers: 471,
+    totalUsers,
     dailySignups,
     cumulativeData,
     growthRates,
     avgDailyGrowth: Math.round(avgDailyGrowth),
+    avgWeeklyGrowth: Math.round(avgWeeklyGrowth),
+    peakWeeklyGrowth,
     peakDay: '2025-10-06',
     peakDaySignups: 78,
     weeklyData,
@@ -83,8 +98,8 @@ export const processUserData = () => {
     avgDailySignups,
     firstWeekAvg,
     secondWeekAvg,
-    totalActiveWeeks: 2,
-    conversionRate: '5.3%', // Estimated based on 25+ daily active from 471 total
-    retentionRate: '53%' // 25+ daily active users from ~47 avg weekly signups
+    totalActiveWeeks: weeklyData.length,
+    conversionRate: '5.3%', // Estimated based on 25+ daily active from total users
+    retentionRate: '53%' // 25+ daily active users from weekly signups
   }
 }

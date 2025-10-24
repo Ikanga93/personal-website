@@ -9,10 +9,23 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
   const chartWidth = 900
   const padding = 60
 
-  const points = data.map((d, i) => {
-    const x = padding + (i / (data.length - 1)) * (chartWidth - 2 * padding)
-    const y = chartHeight - padding - ((d.users / maxUsers) * (chartHeight - 2 * padding))
-    return { x, y, users: d.users, date: d.date, newUsers: d.newUsers }
+  // Convert to weekly data with cumulative users and growth percentages
+  const weeklyData = [
+    { week: 'Aug 11', signups: 1, cumulative: 1, growth: null },
+    { week: 'Aug 18', signups: 8, cumulative: 9, growth: 700.00 },
+    { week: 'Sep 22', signups: 1, cumulative: 10, growth: -87.50 },
+    { week: 'Sep 29', signups: 67, cumulative: 77, growth: 6600.00 },
+    { week: 'Oct 6', signups: 329, cumulative: 406, growth: 391.04 },
+    { week: 'Oct 13', signups: 68, cumulative: 474, growth: -79.33 },
+    { week: 'Oct 20', signups: 8, cumulative: 482, growth: -88.24 }
+  ]
+
+  const maxCumulative = Math.max(...weeklyData.map(d => d.cumulative))
+
+  const points = weeklyData.map((d, i) => {
+    const x = padding + (i / (weeklyData.length - 1)) * (chartWidth - 2 * padding)
+    const y = chartHeight - padding - ((d.cumulative / maxCumulative) * (chartHeight - 2 * padding))
+    return { x, y, cumulative: d.cumulative, week: d.week, signups: d.signups, growth: d.growth }
   })
 
   const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ')
@@ -22,18 +35,18 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
       {/* Summary Stats */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div className="text-center p-3 bg-blue-50 rounded-lg">
-          <div className="text-2xl font-bold text-blue-600">{maxUsers}</div>
+          <div className="text-2xl font-bold text-blue-600">{maxCumulative}</div>
           <div className="text-xs text-blue-700">Total Users</div>
         </div>
         <div className="text-center p-3 bg-green-50 rounded-lg">
           <div className="text-2xl font-bold text-green-600">
-            {Math.round((data[data.length - 1].users - data[0].users) / data.length)}
+            {Math.round(weeklyData.reduce((sum, d) => sum + d.signups, 0) / weeklyData.length)}
           </div>
-          <div className="text-xs text-green-700">Avg Daily Signups</div>
+          <div className="text-xs text-green-700">Avg Weekly Signups</div>
         </div>
         <div className="text-center p-3 bg-purple-50 rounded-lg">
-          <div className="text-2xl font-bold text-purple-600">{data.length}</div>
-          <div className="text-xs text-purple-700">Days Tracked</div>
+          <div className="text-2xl font-bold text-purple-600">{weeklyData.length}</div>
+          <div className="text-xs text-purple-700">Weeks Tracked</div>
         </div>
       </div>
 
@@ -124,12 +137,12 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
             dominantBaseline="middle"
             fontWeight="500"
           >
-            {Math.round(maxUsers * ratio)}
+            {Math.round(maxCumulative * ratio)}
           </text>
         ))}
 
-        {/* X-axis labels (show every 2nd date) */}
-        {points.filter((_, i) => i % 2 === 0).map((p, i) => (
+        {/* X-axis labels (show all weeks) */}
+        {points.map((p, i) => (
           <text
             key={i}
             x={p.x}
@@ -139,7 +152,7 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
             fill="#6b7280"
             fontWeight="500"
           >
-            {new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            {p.week}
           </text>
         ))}
 
@@ -168,28 +181,21 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
             }}
           >
             <div className="text-xs text-gray-400 mb-1">
-              {new Date(points[hoveredPoint].date).toLocaleDateString('en-US', { 
-                weekday: 'short',
-                month: 'short', 
-                day: 'numeric',
-                year: 'numeric'
-              })}
+              Week of {points[hoveredPoint].week}, 2025
             </div>
-            <div className="font-bold text-2xl mb-2 text-blue-400">{points[hoveredPoint].users} users</div>
+            <div className="font-bold text-2xl mb-2 text-blue-400">{points[hoveredPoint].cumulative} users</div>
             
-            {hoveredPoint > 0 && (
-              <>
-                <div className="flex items-center justify-between text-xs border-t border-gray-700 pt-2 mt-2">
-                  <span className="text-gray-400">New signups:</span>
-                  <span className="text-green-400 font-bold">+{points[hoveredPoint].newUsers}</span>
-                </div>
-                <div className="flex items-center justify-between text-xs mt-1">
-                  <span className="text-gray-400">Growth:</span>
-                  <span className="text-green-400 font-bold">
-                    +{(((points[hoveredPoint].users - points[hoveredPoint - 1].users) / points[hoveredPoint - 1].users) * 100).toFixed(1)}%
-                  </span>
-                </div>
-              </>
+            <div className="flex items-center justify-between text-xs border-t border-gray-700 pt-2 mt-2">
+              <span className="text-gray-400">New signups:</span>
+              <span className="text-green-400 font-bold">+{points[hoveredPoint].signups}</span>
+            </div>
+            {points[hoveredPoint].growth !== null && (
+              <div className="flex items-center justify-between text-xs mt-1">
+                <span className="text-gray-400">WoW Growth:</span>
+                <span className={`font-bold ${points[hoveredPoint].growth! > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  {points[hoveredPoint].growth! > 0 ? '+' : ''}{points[hoveredPoint].growth!.toFixed(1)}%
+                </span>
+              </div>
             )}
             
             {/* Arrow pointer */}
@@ -201,8 +207,8 @@ export const CumulativeGrowthChart = ({ data, maxUsers }: { data: any[], maxUser
       </AnimatePresence>
 
       <div className="text-center mt-6">
-        <div className="text-sm font-bold text-gray-900 mb-1">Cumulative User Growth</div>
-        <div className="text-xs text-gray-500">Hover over data points for detailed insights</div>
+        <div className="text-sm font-bold text-gray-900 mb-1">Weekly Cumulative User Growth</div>
+        <div className="text-xs text-gray-500">Hover over data points to see week-over-week growth percentages</div>
       </div>
     </div>
   )
@@ -213,11 +219,23 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
   const chartHeight = 350
   const chartWidth = 900
   const padding = 60
-  const barWidth = (chartWidth - 2 * padding) / data.length * 0.7
 
-  const totalSignups = data.reduce((sum, d) => sum + d.newUsers, 0)
-  const avgSignups = Math.round(totalSignups / data.length)
-  const peakDay = data.reduce((max, d) => d.newUsers > max.newUsers ? d : max, data[0])
+  // Convert to weekly data
+  const weeklyData = [
+    { week: 'Aug 11', signups: 1, growth: null },
+    { week: 'Aug 18', signups: 8, growth: 700.00 },
+    { week: 'Sep 22', signups: 1, growth: -87.50 },
+    { week: 'Sep 29', signups: 67, growth: 6600.00 },
+    { week: 'Oct 6', signups: 329, growth: 391.04 },
+    { week: 'Oct 13', signups: 68, growth: -79.33 },
+    { week: 'Oct 20', signups: 8, growth: -88.24 }
+  ]
+
+  const barWidth = (chartWidth - 2 * padding) / weeklyData.length * 0.7
+  const totalSignups = weeklyData.reduce((sum, d) => sum + d.signups, 0)
+  const avgSignups = Math.round(totalSignups / weeklyData.length)
+  const peakWeek = weeklyData.reduce((max, d) => d.signups > max.signups ? d : max, weeklyData[0])
+  const maxWeeklySignups = Math.max(...weeklyData.map(d => d.signups))
 
   return (
     <div className="w-full overflow-x-auto relative">
@@ -228,12 +246,12 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
           <div className="text-xs text-purple-700">Total Signups</div>
         </div>
         <div className="text-center p-3 bg-orange-50 rounded-lg">
-          <div className="text-2xl font-bold text-orange-600">{peakDay.newUsers}</div>
-          <div className="text-xs text-orange-700">Peak Day</div>
+          <div className="text-2xl font-bold text-orange-600">{peakWeek.signups}</div>
+          <div className="text-xs text-orange-700">Peak Week</div>
         </div>
         <div className="text-center p-3 bg-teal-50 rounded-lg">
           <div className="text-2xl font-bold text-teal-600">{avgSignups}</div>
-          <div className="text-xs text-teal-700">Daily Average</div>
+          <div className="text-xs text-teal-700">Weekly Average</div>
         </div>
       </div>
 
@@ -255,9 +273,9 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
         {/* Average line */}
         <line
           x1={padding}
-          y1={chartHeight - padding - (avgSignups / maxNewUsers) * (chartHeight - 2 * padding)}
+          y1={chartHeight - padding - (avgSignups / maxWeeklySignups) * (chartHeight - 2 * padding)}
           x2={chartWidth - padding}
-          y2={chartHeight - padding - (avgSignups / maxNewUsers) * (chartHeight - 2 * padding)}
+          y2={chartHeight - padding - (avgSignups / maxWeeklySignups) * (chartHeight - 2 * padding)}
           stroke="#f59e0b"
           strokeWidth="2"
           strokeDasharray="8 4"
@@ -265,7 +283,7 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
         />
         <text
           x={chartWidth - padding - 5}
-          y={chartHeight - padding - (avgSignups / maxNewUsers) * (chartHeight - 2 * padding) - 5}
+          y={chartHeight - padding - (avgSignups / maxWeeklySignups) * (chartHeight - 2 * padding) - 5}
           textAnchor="end"
           fontSize="11"
           fill="#f59e0b"
@@ -275,13 +293,13 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
         </text>
 
         {/* Bars */}
-        {data.map((d, i) => {
-          const x = padding + (i / data.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / data.length * 0.15
-          const barHeight = (d.newUsers / maxNewUsers) * (chartHeight - 2 * padding)
+        {weeklyData.map((d, i) => {
+          const x = padding + (i / weeklyData.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / weeklyData.length * 0.15
+          const barHeight = (d.signups / maxWeeklySignups) * (chartHeight - 2 * padding)
           const y = chartHeight - padding - barHeight
           const isHovered = hoveredBar === i
-          const isPeak = d.newUsers === peakDay.newUsers
-          const isAboveAvg = d.newUsers > avgSignups
+          const isPeak = d.signups === peakWeek.signups
+          const isAboveAvg = d.signups > avgSignups
 
           return (
             <g key={i}>
@@ -351,7 +369,7 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
                 fontWeight="bold"
                 style={{ transition: 'all 0.2s ease' }}
               >
-                {d.newUsers}
+                {d.signups}
               </text>
               {/* Peak indicator */}
               {isPeak && !isHovered && (
@@ -382,14 +400,13 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
             dominantBaseline="middle"
             fontWeight="500"
           >
-            {Math.round(maxNewUsers * ratio)}
+            {Math.round(maxWeeklySignups * ratio)}
           </text>
         ))}
 
         {/* X-axis labels */}
-        {data.filter((_, i) => i % 2 === 0).map((d, i) => {
-          const actualIndex = data.findIndex(item => item.date === d.date)
-          const x = padding + (actualIndex / data.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / data.length * 0.5
+        {weeklyData.map((d, i) => {
+          const x = padding + (i / weeklyData.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / weeklyData.length * 0.5
           return (
             <text
               key={i}
@@ -400,7 +417,7 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
               fill="#6b7280"
               fontWeight="500"
             >
-              {new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+              {d.week}
             </text>
           )
         })}
@@ -416,43 +433,40 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
             transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
             className="absolute bg-gradient-to-br from-gray-900 to-gray-800 text-white px-5 py-4 rounded-xl shadow-2xl pointer-events-none z-20 border border-gray-700"
             style={{
-              left: `${((padding + (hoveredBar / data.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / data.length * 0.5) / chartWidth) * 100}%`,
-              top: `${((chartHeight - padding - (data[hoveredBar].newUsers / maxNewUsers) * (chartHeight - 2 * padding)) / chartHeight) * 100 - 15}%`,
+              left: `${((padding + (hoveredBar / weeklyData.length) * (chartWidth - 2 * padding) + (chartWidth - 2 * padding) / weeklyData.length * 0.5) / chartWidth) * 100}%`,
+              top: `${((chartHeight - padding - (weeklyData[hoveredBar].signups / maxWeeklySignups) * (chartHeight - 2 * padding)) / chartHeight) * 100 - 15}%`,
               transform: 'translate(-50%, -100%)',
               minWidth: '220px'
             }}
           >
             <div className="text-xs text-gray-400 mb-1">
-              {new Date(data[hoveredBar].date).toLocaleDateString('en-US', { 
-                weekday: 'short',
-                month: 'short', 
-                day: 'numeric',
-                year: 'numeric'
-              })}
+              Week of {weeklyData[hoveredBar].week}, 2025
             </div>
             <div className="font-bold text-2xl mb-2 text-purple-400">
-              {data[hoveredBar].newUsers} signups
+              {weeklyData[hoveredBar].signups} signups
             </div>
             
             <div className="space-y-1 border-t border-gray-700 pt-2 mt-2">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-gray-400">vs Average:</span>
-                <span className={`font-bold ${data[hoveredBar].newUsers > avgSignups ? 'text-green-400' : 'text-orange-400'}`}>
-                  {data[hoveredBar].newUsers > avgSignups ? '+' : ''}{data[hoveredBar].newUsers - avgSignups}
+                <span className={`font-bold ${weeklyData[hoveredBar].signups > avgSignups ? 'text-green-400' : 'text-orange-400'}`}>
+                  {weeklyData[hoveredBar].signups > avgSignups ? '+' : ''}{weeklyData[hoveredBar].signups - avgSignups}
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-gray-400">% of Peak:</span>
                 <span className="text-blue-400 font-bold">
-                  {((data[hoveredBar].newUsers / peakDay.newUsers) * 100).toFixed(0)}%
+                  {((weeklyData[hoveredBar].signups / peakWeek.signups) * 100).toFixed(0)}%
                 </span>
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-gray-400">Cumulative:</span>
-                <span className="text-teal-400 font-bold">
-                  {data[hoveredBar].users} total users
-                </span>
-              </div>
+              {weeklyData[hoveredBar].growth !== null && (
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-gray-400">WoW Growth:</span>
+                  <span className={`font-bold ${weeklyData[hoveredBar].growth! > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    {weeklyData[hoveredBar].growth! > 0 ? '+' : ''}{weeklyData[hoveredBar].growth!.toFixed(1)}%
+                  </span>
+                </div>
+              )}
             </div>
             
             {/* Arrow pointer */}
@@ -464,13 +478,13 @@ export const DailySignupsChart = ({ data, maxNewUsers }: { data: any[], maxNewUs
       </AnimatePresence>
 
       <div className="text-center mt-6">
-        <div className="text-sm font-bold text-gray-900 mb-1">Daily New User Signups</div>
+        <div className="text-sm font-bold text-gray-900 mb-1">Weekly New User Signups</div>
         <div className="text-xs text-gray-500">
           <span className="inline-block w-3 h-3 bg-gradient-to-b from-purple-500 to-purple-300 rounded mr-1"></span>
           Above average
           <span className="inline-block w-3 h-3 bg-gradient-to-b from-purple-300 to-purple-200 rounded mx-1 ml-3"></span>
           Below average
-          <span className="ml-3">⭐ Peak day</span>
+          <span className="ml-3">⭐ Peak week</span>
         </div>
       </div>
     </div>
